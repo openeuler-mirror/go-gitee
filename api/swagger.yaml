@@ -14658,7 +14658,8 @@ definitions:
     type: "object"
     properties:
       id:
-        type: "string"
+        type: "integer"
+        format: "int32"
       url:
         type: "string"
       html_url:
@@ -14680,7 +14681,8 @@ definitions:
       statuses_url:
         type: "string"
       number:
-        type: "string"
+        type: "integer"
+        format: "int32"
       state:
         type: "string"
       title:
@@ -14712,15 +14714,15 @@ definitions:
       merged_at:
         type: "string"
       mergeable:
-        type: "string"
+        type: "boolean"
       head:
-        type: "string"
+        $ref: "#/definitions/BasicInfo"
       base:
-        type: "string"
+        $ref: "#/definitions/BasicInfo"
       _links:
         type: "string"
       user:
-        type: "string"
+        $ref: "#/definitions/UserBasic"
     description: "取消用户测试 Pull Request"
     example:
       issue_url: "issue_url"
@@ -15950,3 +15952,17 @@ definitions:
       id: 6
       content: "content"
       url: "url"
+  BasicInfo:
+    type: "object"
+    properties:
+      label:
+        type: "string"
+      ref:
+        type: "string"
+      sha:
+        type: "string"
+      user:
+        $ref: "#/definitions/UserBasic"
+      repo:
+        $ref: "#/definitions/Project"
+    description: "basic information"

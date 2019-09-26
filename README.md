@@ -249,6 +249,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [BasicInfo](docs/BasicInfo.md)
  - [Blob](docs/Blob.md)
  - [Branch](docs/Branch.md)
  - [Code](docs/Code.md)

@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | [optional] [default to null]
+**Id** | **int32** |  | [optional] [default to null]
 **Url** | **string** |  | [optional] [default to null]
 **HtmlUrl** | **string** |  | [optional] [default to null]
 **DiffUrl** | **string** |  | [optional] [default to null]
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **ReviewCommentUrl** | **string** |  | [optional] [default to null]
 **CommentsUrl** | **string** |  | [optional] [default to null]
 **StatusesUrl** | **string** |  | [optional] [default to null]
-**Number** | **string** |  | [optional] [default to null]
+**Number** | **int32** |  | [optional] [default to null]
 **State** | **string** |  | [optional] [default to null]
 **Title** | **string** |  | [optional] [default to null]
 **Body** | **string** |  | [optional] [default to null]
@@ -28,11 +28,11 @@ Name | Type | Description | Notes
 **UpdatedAt** | **string** |  | [optional] [default to null]
 **ClosedAt** | **string** |  | [optional] [default to null]
 **MergedAt** | **string** |  | [optional] [default to null]
-**Mergeable** | **string** |  | [optional] [default to null]
-**Head** | **string** |  | [optional] [default to null]
-**Base** | **string** |  | [optional] [default to null]
+**Mergeable** | **bool** |  | [optional] [default to null]
+**Head** | [***BasicInfo**](BasicInfo.md) |  | [optional] [default to null]
+**Base** | [***BasicInfo**](BasicInfo.md) |  | [optional] [default to null]
 **Links** | **string** |  | [optional] [default to null]
-**User** | **string** |  | [optional] [default to null]
+**User** | [***UserBasic**](UserBasic.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
