@@ -11,7 +11,7 @@ package gitee
 
 // 获取企业某个Issue所有评论
 type Note struct {
-	Id        string `json:"id,omitempty"`
+	Id        int32  `json:"id,omitempty"`
 	Body      string `json:"body,omitempty"`
 	BodyHtml  string `json:"body_html,omitempty"`
 	User      string `json:"user,omitempty"`
