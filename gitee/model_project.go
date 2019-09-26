@@ -20,10 +20,10 @@ type Project struct {
 	Name                string       `json:"name,omitempty"`
 	Owner               *UserBasic   `json:"owner,omitempty"`
 	Description         string       `json:"description,omitempty"`
-	Private             string       `json:"private,omitempty"`
-	Public              string       `json:"public,omitempty"`
-	Internal            string       `json:"internal,omitempty"`
-	Fork                string       `json:"fork,omitempty"`
+	Private             bool         `json:"private,omitempty"`
+	Public              bool         `json:"public,omitempty"`
+	Internal            bool         `json:"internal,omitempty"`
+	Fork                bool         `json:"fork,omitempty"`
 	HtmlUrl             string       `json:"html_url,omitempty"`
 	SshUrl              string       `json:"ssh_url,omitempty"`
 	ForksUrl            string       `json:"forks_url,omitempty"`
@@ -44,7 +44,7 @@ type Project struct {
 	NotificationsUrl    string       `json:"notifications_url,omitempty"`
 	LabelsUrl           string       `json:"labels_url,omitempty"`
 	ReleasesUrl         string       `json:"releases_url,omitempty"`
-	Recommend           string       `json:"recommend,omitempty"`
+	Recommend           bool         `json:"recommend,omitempty"`
 	Homepage            string       `json:"homepage,omitempty"`
 	Language            string       `json:"language,omitempty"`
 	ForksCount          string       `json:"forks_count,omitempty"`
@@ -52,12 +52,12 @@ type Project struct {
 	WatchersCount       string       `json:"watchers_count,omitempty"`
 	DefaultBranch       string       `json:"default_branch,omitempty"`
 	OpenIssuesCount     int32        `json:"open_issues_count,omitempty"`
-	HasIssues           string       `json:"has_issues,omitempty"`
-	HasWiki             string       `json:"has_wiki,omitempty"`
-	PullRequestsEnabled string       `json:"pull_requests_enabled,omitempty"`
-	HasPage             string       `json:"has_page,omitempty"`
+	HasIssues           bool         `json:"has_issues,omitempty"`
+	HasWiki             bool         `json:"has_wiki,omitempty"`
+	PullRequestsEnabled bool         `json:"pull_requests_enabled,omitempty"`
+	HasPage             bool         `json:"has_page,omitempty"`
 	License             string       `json:"license,omitempty"`
-	Outsourced          string       `json:"outsourced,omitempty"`
+	Outsourced          bool         `json:"outsourced,omitempty"`
 	ProjectCreator      string       `json:"project_creator,omitempty"`
 	Members             string       `json:"members,omitempty"`
 	PushedAt            string       `json:"pushed_at,omitempty"`

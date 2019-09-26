@@ -19,10 +19,10 @@ type ProjectBasic struct {
 	Name        string       `json:"name,omitempty"`
 	Owner       *UserBasic   `json:"owner,omitempty"`
 	Description string       `json:"description,omitempty"`
-	Private     string       `json:"private,omitempty"`
-	Public      string       `json:"public,omitempty"`
-	Internal    string       `json:"internal,omitempty"`
-	Fork        string       `json:"fork,omitempty"`
+	Private     bool         `json:"private,omitempty"`
+	Public      bool         `json:"public,omitempty"`
+	Internal    bool         `json:"internal,omitempty"`
+	Fork        bool         `json:"fork,omitempty"`
 	HtmlUrl     string       `json:"html_url,omitempty"`
 	SshUrl      string       `json:"ssh_url,omitempty"`
 }

@@ -14349,13 +14349,13 @@ definitions:
       description:
         type: "string"
       private:
-        type: "string"
+        type: "boolean"
       public:
-        type: "string"
+        type: "boolean"
       internal:
-        type: "string"
+        type: "boolean"
       fork:
-        type: "string"
+        type: "boolean"
       html_url:
         type: "string"
       ssh_url:
@@ -14397,7 +14397,7 @@ definitions:
       releases_url:
         type: "string"
       recommend:
-        type: "string"
+        type: "boolean"
       homepage:
         type: "string"
       language:
@@ -14414,17 +14414,17 @@ definitions:
         type: "integer"
         format: "int32"
       has_issues:
-        type: "string"
+        type: "boolean"
       has_wiki:
-        type: "string"
+        type: "boolean"
       pull_requests_enabled:
-        type: "string"
+        type: "boolean"
       has_page:
-        type: "string"
+        type: "boolean"
       license:
         type: "string"
       outsourced:
-        type: "string"
+        type: "boolean"
       project_creator:
         type: "string"
       members:
@@ -15219,13 +15219,13 @@ definitions:
       description:
         type: "string"
       private:
-        type: "string"
+        type: "boolean"
       public:
-        type: "string"
+        type: "boolean"
       internal:
-        type: "string"
+        type: "boolean"
       fork:
-        type: "string"
+        type: "boolean"
       html_url:
         type: "string"
       ssh_url:
