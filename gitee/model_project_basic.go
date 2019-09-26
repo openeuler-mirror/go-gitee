@@ -17,7 +17,7 @@ type ProjectBasic struct {
 	Namespace   *interface{} `json:"namespace,omitempty"`
 	Path        string       `json:"path,omitempty"`
 	Name        string       `json:"name,omitempty"`
-	Owner       string       `json:"owner,omitempty"`
+	Owner       *UserBasic   `json:"owner,omitempty"`
 	Description string       `json:"description,omitempty"`
 	Private     string       `json:"private,omitempty"`
 	Public      string       `json:"public,omitempty"`

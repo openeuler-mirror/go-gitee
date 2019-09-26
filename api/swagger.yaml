@@ -14345,7 +14345,7 @@ definitions:
       name:
         type: "string"
       owner:
-        type: "string"
+        $ref: "#/definitions/UserBasic"
       description:
         type: "string"
       private:
@@ -15215,7 +15215,7 @@ definitions:
       name:
         type: "string"
       owner:
-        type: "string"
+        $ref: "#/definitions/UserBasic"
       description:
         type: "string"
       private:

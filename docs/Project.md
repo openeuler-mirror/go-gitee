@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Namespace** | [***interface{}**](interface{}.md) |  | [optional] [default to null]
 **Path** | **string** |  | [optional] [default to null]
 **Name** | **string** |  | [optional] [default to null]
-**Owner** | **string** |  | [optional] [default to null]
+**Owner** | [***UserBasic**](UserBasic.md) |  | [optional] [default to null]
 **Description** | **string** |  | [optional] [default to null]
 **Private** | **string** |  | [optional] [default to null]
 **Public** | **string** |  | [optional] [default to null]
