@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **Assignees** | **[]string** |  | [optional] [default to null]
 **Testers** | **[]string** |  | [optional] [default to null]
 **Milestone** | [***Milestone**](Milestone.md) |  | [optional] [default to null]
-**Labels** | [***Label**](Label.md) |  | [optional] [default to null]
+**Labels** | [**[]Label**](Label.md) |  | [optional] [default to null]
 **Locked** | **string** |  | [optional] [default to null]
 **CreatedAt** | **string** |  | [optional] [default to null]
 **UpdatedAt** | **string** |  | [optional] [default to null]

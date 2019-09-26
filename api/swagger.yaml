@@ -14702,7 +14702,9 @@ definitions:
       milestone:
         $ref: "#/definitions/Milestone"
       labels:
-        $ref: "#/definitions/Label"
+        type: "array"
+        items:
+          $ref: "#/definitions/Label"
       locked:
         type: "string"
       created_at:
