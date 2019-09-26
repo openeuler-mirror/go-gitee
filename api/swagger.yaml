@@ -14309,7 +14309,7 @@ definitions:
       body_html:
         type: "string"
       user:
-        type: "string"
+        $ref: "#/definitions/User"
       source:
         type: "string"
       created_at:
