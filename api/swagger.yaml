@@ -14191,7 +14191,7 @@ definitions:
       type:
         type: "string"
       site_admin:
-        type: "string"
+        type: "boolean"
     description: "列出一个组织的所有成员"
     example:
       gists_url: "gists_url"
@@ -15342,7 +15342,7 @@ definitions:
       type:
         type: "string"
       site_admin:
-        type: "string"
+        type: "boolean"
       blog:
         type: "string"
       weibo:
