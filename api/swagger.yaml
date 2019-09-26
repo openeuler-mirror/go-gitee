@@ -14403,11 +14403,14 @@ definitions:
       language:
         type: "string"
       forks_count:
-        type: "string"
+        type: "integer"
+        format: "int32"
       stargazers_count:
-        type: "string"
+        type: "integer"
+        format: "int32"
       watchers_count:
-        type: "string"
+        type: "integer"
+        format: "int32"
       default_branch:
         type: "string"
       open_issues_count:

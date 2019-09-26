@@ -47,9 +47,9 @@ type Project struct {
 	Recommend           bool         `json:"recommend,omitempty"`
 	Homepage            string       `json:"homepage,omitempty"`
 	Language            string       `json:"language,omitempty"`
-	ForksCount          string       `json:"forks_count,omitempty"`
-	StargazersCount     string       `json:"stargazers_count,omitempty"`
-	WatchersCount       string       `json:"watchers_count,omitempty"`
+	ForksCount          int32        `json:"forks_count,omitempty"`
+	StargazersCount     int32        `json:"stargazers_count,omitempty"`
+	WatchersCount       int32        `json:"watchers_count,omitempty"`
 	DefaultBranch       string       `json:"default_branch,omitempty"`
 	OpenIssuesCount     int32        `json:"open_issues_count,omitempty"`
 	HasIssues           bool         `json:"has_issues,omitempty"`
