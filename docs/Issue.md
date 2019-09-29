@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **Body** | **string** |  | [optional] [default to null]
 **BodyHtml** | **string** |  | [optional] [default to null]
 **User** | **string** |  | [optional] [default to null]
-**Labels** | [***Label**](Label.md) |  | [optional] [default to null]
+**Labels** | [**[]Label**](Label.md) |  | [optional] [default to null]
 **Assignee** | [***UserBasic**](UserBasic.md) |  | [optional] [default to null]
 **Collaborators** | [***UserBasic**](UserBasic.md) |  | [optional] [default to null]
 **Repository** | **string** |  | [optional] [default to null]

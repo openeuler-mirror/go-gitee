@@ -13975,7 +13975,9 @@ definitions:
       user:
         type: "string"
       labels:
-        $ref: "#/definitions/Label"
+        type: "array"
+        items:
+          $ref: "#/definitions/Label"
       assignee:
         $ref: "#/definitions/UserBasic"
       collaborators:
