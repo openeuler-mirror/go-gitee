@@ -1549,86 +1549,25 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "access_token"
-        in: "formData"
-        description: "用户授权码"
-        required: false
-        type: "string"
-        x-exportParamName: "AccessToken"
-        x-optionalDataType: "String"
       - name: "owner"
         in: "path"
         description: "仓库所属空间地址(企业、组织或个人的地址path)"
         required: true
         type: "string"
         x-exportParamName: "Owner"
-      - name: "repo"
-        in: "formData"
-        description: "仓库路径(path)"
-        required: false
-        type: "string"
-        x-exportParamName: "Repo"
-        x-optionalDataType: "String"
-      - name: "title"
-        in: "formData"
-        description: "Issue标题"
-        required: false
-        type: "string"
-        x-exportParamName: "Title"
-        x-optionalDataType: "String"
       - name: "number"
         in: "path"
         description: "Issue 编号(区分大小写，无需添加 # 号)"
         required: true
         type: "string"
         x-exportParamName: "Number"
-      - name: "state"
-        in: "formData"
-        description: "Issue 状态，open（开启的）、progressing（进行中）、closed（关闭的）"
-        required: false
-        type: "string"
-        enum:
-        - "open"
-        - "progressing"
-        - "closed"
-        x-exportParamName: "State"
-        x-optionalDataType: "String"
-      - name: "body"
-        in: "formData"
-        description: "Issue描述"
-        required: false
-        type: "string"
+      - in: "body"
+        name: "body"
+        description: "可选。Issue 内容"
+        required: true
+        schema:
+          $ref: "#/definitions/IssueUpdateParam"
         x-exportParamName: "Body"
-        x-optionalDataType: "String"
-      - name: "assignee"
-        in: "formData"
-        description: "Issue负责人的username"
-        required: false
-        type: "string"
-        x-exportParamName: "Assignee"
-        x-optionalDataType: "String"
-      - name: "milestone"
-        in: "formData"
-        description: "里程碑序号"
-        required: false
-        type: "integer"
-        format: "int32"
-        x-exportParamName: "Milestone"
-        x-optionalDataType: "Int32"
-      - name: "labels"
-        in: "formData"
-        description: "用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance"
-        required: false
-        type: "string"
-        x-exportParamName: "Labels"
-        x-optionalDataType: "String"
-      - name: "program"
-        in: "formData"
-        description: "项目ID"
-        required: false
-        type: "string"
-        x-exportParamName: "Program"
-        x-optionalDataType: "String"
       responses:
         200:
           description: "返回格式"
@@ -15975,6 +15914,70 @@ definitions:
       access_token: "access_token"
       milestone_number: 0
       state: "open"
+      title: "title"
+      body: "body"
+      labels: "labels"
+  IssueUpdateParam:
+    type: "object"
+    properties:
+      access_token:
+        type: "string"
+        description: "用户授权码"
+        x-exportParamName: "AccessToken"
+        x-optionalDataType: "String"
+      repo:
+        type: "string"
+        description: "仓库路径(path)"
+        x-exportParamName: "Repo"
+        x-optionalDataType: "String"
+      title:
+        type: "string"
+        description: "Issue标题"
+        x-exportParamName: "Title"
+        x-optionalDataType: "String"
+      state:
+        type: "string"
+        description: "Issue 状态，open（开启的）、progressing（进行中）、closed（关闭的）"
+        enum:
+        - "open"
+        - "progressing"
+        - "closed"
+        x-exportParamName: "State"
+        x-optionalDataType: "String"
+      body:
+        type: "string"
+        description: "Issue描述"
+        x-exportParamName: "Body"
+        x-optionalDataType: "String"
+      assignee:
+        type: "string"
+        description: "Issue负责人的username"
+        x-exportParamName: "Assignee"
+        x-optionalDataType: "String"
+      milestone:
+        type: "integer"
+        format: "int32"
+        description: "里程碑序号"
+        x-exportParamName: "Milestone"
+        x-optionalDataType: "Int32"
+      labels:
+        type: "string"
+        description: "用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance"
+        x-exportParamName: "Labels"
+        x-optionalDataType: "String"
+      program:
+        type: "string"
+        description: "项目ID"
+        x-exportParamName: "Program"
+        x-optionalDataType: "String"
+    description: "update issue information"
+    example:
+      access_token: "access_token"
+      milestone: 0
+      repo: "repo"
+      state: "open"
+      assignee: "assignee"
+      program: "program"
       title: "title"
       body: "body"
       labels: "labels"

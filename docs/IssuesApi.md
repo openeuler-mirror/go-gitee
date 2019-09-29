@@ -647,7 +647,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PatchV5ReposOwnerIssuesNumber**
-> Issue PatchV5ReposOwnerIssuesNumber(ctx, owner, number, optional)
+> Issue PatchV5ReposOwnerIssuesNumber(ctx, owner, number, body)
 更新Issue
 
 更新Issue
@@ -659,24 +659,7 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
   **number** | **string**| Issue 编号(区分大小写，无需添加 # 号) | 
- **optional** | ***PatchV5ReposOwnerIssuesNumberOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a PatchV5ReposOwnerIssuesNumberOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **accessToken** | **optional.String**| 用户授权码 | 
- **repo** | **optional.String**| 仓库路径(path) | 
- **title** | **optional.String**| Issue标题 | 
- **state** | **optional.String**| Issue 状态，open（开启的）、progressing（进行中）、closed（关闭的） | 
- **body** | **optional.String**| Issue描述 | 
- **assignee** | **optional.String**| Issue负责人的username | 
- **milestone** | **optional.Int32**| 里程碑序号 | 
- **labels** | **optional.String**| 用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance | 
- **program** | **optional.String**| 项目ID | 
+  **body** | [**IssueUpdateParam**](IssueUpdateParam.md)| 可选。Issue 内容 | 
 
 ### Return type
 
