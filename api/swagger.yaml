@@ -4200,13 +4200,6 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "access_token"
-        in: "formData"
-        description: "用户授权码"
-        required: false
-        type: "string"
-        x-exportParamName: "AccessToken"
-        x-optionalDataType: "String"
       - name: "owner"
         in: "path"
         description: "仓库所属空间地址(企业、组织或个人的地址path)"
@@ -4226,45 +4219,13 @@ paths:
         type: "integer"
         format: "int32"
         x-exportParamName: "Number"
-      - name: "title"
-        in: "formData"
-        description: "可选。Pull Request 标题"
-        required: false
-        type: "string"
-        x-exportParamName: "Title"
-        x-optionalDataType: "String"
-      - name: "body"
-        in: "formData"
+      - in: "body"
+        name: "body"
         description: "可选。Pull Request 内容"
-        required: false
-        type: "string"
+        required: true
+        schema:
+          $ref: "#/definitions/PullRequestUpdateParam"
         x-exportParamName: "Body"
-        x-optionalDataType: "String"
-      - name: "state"
-        in: "formData"
-        description: "可选。Pull Request 状态"
-        required: false
-        type: "string"
-        enum:
-        - "open"
-        - "closed"
-        x-exportParamName: "State"
-        x-optionalDataType: "String"
-      - name: "milestone_number"
-        in: "formData"
-        description: "可选。里程碑序号(id)"
-        required: false
-        type: "integer"
-        format: "int32"
-        x-exportParamName: "MilestoneNumber"
-        x-optionalDataType: "Int32"
-      - name: "labels"
-        in: "formData"
-        description: "用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance"
-        required: false
-        type: "string"
-        x-exportParamName: "Labels"
-        x-optionalDataType: "String"
       responses:
         200:
           description: "返回格式"
@@ -15968,3 +15929,48 @@ definitions:
       repo:
         $ref: "#/definitions/Project"
     description: "basic information"
+  PullRequestUpdateParam:
+    type: "object"
+    properties:
+      access_token:
+        type: "string"
+        description: "用户授权码"
+        x-exportParamName: "AccessToken"
+        x-optionalDataType: "String"
+      title:
+        type: "string"
+        description: "可选。Pull Request 标题"
+        x-exportParamName: "Title"
+        x-optionalDataType: "String"
+      body:
+        type: "string"
+        description: "可选。Pull Request 内容"
+        x-exportParamName: "Body"
+        x-optionalDataType: "String"
+      state:
+        type: "string"
+        description: "可选。Pull Request 状态"
+        enum:
+        - "open"
+        - "closed"
+        x-exportParamName: "State"
+        x-optionalDataType: "String"
+      milestone_number:
+        type: "integer"
+        format: "int32"
+        description: "可选。里程碑序号(id)"
+        x-exportParamName: "MilestoneNumber"
+        x-optionalDataType: "Int32"
+      labels:
+        type: "string"
+        description: "用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance"
+        x-exportParamName: "Labels"
+        x-optionalDataType: "String"
+    description: "update pull request information"
+    example:
+      access_token: "access_token"
+      milestone_number: 0
+      state: "open"
+      title: "title"
+      body: "body"
+      labels: "labels"

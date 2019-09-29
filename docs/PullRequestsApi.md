@@ -578,7 +578,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PatchV5ReposOwnerRepoPullsNumber**
-> PullRequest PatchV5ReposOwnerRepoPullsNumber(ctx, owner, repo, number, optional)
+> PullRequest PatchV5ReposOwnerRepoPullsNumber(ctx, owner, repo, number, body)
 更新Pull Request信息
 
 更新Pull Request信息
@@ -591,22 +591,7 @@ Name | Type | Description  | Notes
   **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
   **repo** | **string**| 仓库路径(path) | 
   **number** | **int32**| 第几个PR，即本仓库PR的序数 | 
- **optional** | ***PatchV5ReposOwnerRepoPullsNumberOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a PatchV5ReposOwnerRepoPullsNumberOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
- **accessToken** | **optional.String**| 用户授权码 | 
- **title** | **optional.String**| 可选。Pull Request 标题 | 
- **body** | **optional.String**| 可选。Pull Request 内容 | 
- **state** | **optional.String**| 可选。Pull Request 状态 | 
- **milestoneNumber** | **optional.Int32**| 可选。里程碑序号(id) | 
- **labels** | **optional.String**| 用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance | 
+  **body** | [**PullRequestUpdateParam**](PullRequestUpdateParam.md)| 可选。Pull Request 内容 | 
 
 ### Return type
 
