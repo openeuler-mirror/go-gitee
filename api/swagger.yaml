@@ -13973,7 +13973,7 @@ definitions:
       body_html:
         type: "string"
       user:
-        type: "string"
+        $ref: "#/definitions/UserBasic"
       labels:
         type: "array"
         items:
@@ -13981,7 +13981,9 @@ definitions:
       assignee:
         $ref: "#/definitions/UserBasic"
       collaborators:
-        $ref: "#/definitions/UserBasic"
+        type: "array"
+        items:
+          $ref: "#/definitions/UserBasic"
       repository:
         type: "string"
       milestone:
