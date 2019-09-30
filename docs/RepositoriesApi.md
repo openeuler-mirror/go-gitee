@@ -1771,7 +1771,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostV5OrgsOrgRepos**
-> Project PostV5OrgsOrgRepos(ctx, name, org, optional)
+> Project PostV5OrgsOrgRepos(ctx, org, body)
 创建组织仓库
 
 创建组织仓库
@@ -1781,27 +1781,8 @@ No authorization required
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **name** | **string**| 仓库名称 | 
   **org** | **string**| 组织的路径(path/login) | 
- **optional** | ***PostV5OrgsOrgReposOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a PostV5OrgsOrgReposOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **accessToken** | **optional.String**| 用户授权码 | 
- **description** | **optional.String**| 仓库描述 | 
- **homepage** | **optional.String**| 主页(eg: https://gitee.com) | 
- **hasIssues** | **optional.Bool**| 允许提Issue与否。默认: 允许(true) | [default to true]
- **hasWiki** | **optional.Bool**| 提供Wiki与否。默认: 提供(true) | [default to true]
- **public** | **optional.Int32**| 仓库开源类型。0(私有), 1(外部开源), 2(内部开源)，注：与private互斥，以public为主。 | 
- **private** | **optional.Bool**| 仓库公开或私有。默认: 公开(false)，注：与public互斥，以public为主。 | 
- **autoInit** | **optional.Bool**| 值为true时则会用README初始化仓库。默认: 不初始化(false) | 
- **gitignoreTemplate** | **optional.String**| Git Ingore模版 | 
- **licenseTemplate** | **optional.String**| License模版 | 
+  **body** | [**RepositoryPostParam**](RepositoryPostParam.md)| Repositorie 内容 | 
 
 ### Return type
 
