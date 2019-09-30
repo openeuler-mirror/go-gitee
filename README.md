@@ -283,6 +283,7 @@ Class | Method | HTTP request | Description
  - [ProjectBasic](docs/ProjectBasic.md)
  - [ProjectMember](docs/ProjectMember.md)
  - [ProjectMemberPermission](docs/ProjectMemberPermission.md)
+ - [ProjectMemberPutParam](docs/ProjectMemberPutParam.md)
  - [PullRequest](docs/PullRequest.md)
  - [PullRequestComments](docs/PullRequestComments.md)
  - [PullRequestCommits](docs/PullRequestCommits.md)

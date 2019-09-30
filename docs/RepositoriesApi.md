@@ -2233,7 +2233,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutV5ReposOwnerRepoCollaboratorsUsername**
-> ProjectMember PutV5ReposOwnerRepoCollaboratorsUsername(ctx, owner, repo, username, permission, optional)
+> ProjectMember PutV5ReposOwnerRepoCollaboratorsUsername(ctx, owner, repo, username, body)
 添加仓库成员
 
 添加仓库成员
@@ -2246,19 +2246,7 @@ Name | Type | Description  | Notes
   **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
   **repo** | **string**| 仓库路径(path) | 
   **username** | **string**| 用户名(username/login) | 
-  **permission** | **string**| 成员权限: 拉代码(pull)，推代码(push)，管理员(admin)。默认: push | [default to push]
- **optional** | ***PutV5ReposOwnerRepoCollaboratorsUsernameOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a PutV5ReposOwnerRepoCollaboratorsUsernameOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-
- **accessToken** | **optional.String**| 用户授权码 | 
+  **body** | [**ProjectMemberPutParam**](ProjectMemberPutParam.md)| 仓库成员内容 | 
 
 ### Return type
 

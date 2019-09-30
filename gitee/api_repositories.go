@@ -5533,18 +5533,11 @@ RepositoriesApiService 添加仓库成员
  * @param owner 仓库所属空间地址(企业、组织或个人的地址path)
  * @param repo 仓库路径(path)
  * @param username 用户名(username/login)
- * @param permission 成员权限: 拉代码(pull)，推代码(push)，管理员(admin)。默认: push
- * @param optional nil or *PutV5ReposOwnerRepoCollaboratorsUsernameOpts - Optional Parameters:
-     * @param "AccessToken" (optional.String) -  用户授权码
+ * @param body 仓库成员内容
 
 @return ProjectMember
 */
-
-type PutV5ReposOwnerRepoCollaboratorsUsernameOpts struct {
-	AccessToken optional.String
-}
-
-func (a *RepositoriesApiService) PutV5ReposOwnerRepoCollaboratorsUsername(ctx context.Context, owner string, repo string, username string, permission string, localVarOptionals *PutV5ReposOwnerRepoCollaboratorsUsernameOpts) (ProjectMember, *http.Response, error) {
+func (a *RepositoriesApiService) PutV5ReposOwnerRepoCollaboratorsUsername(ctx context.Context, owner string, repo string, username string, body ProjectMemberPutParam) (ProjectMember, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Put")
 		localVarPostBody    interface{}
@@ -5580,10 +5573,8 @@ func (a *RepositoriesApiService) PutV5ReposOwnerRepoCollaboratorsUsername(ctx co
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	if localVarOptionals != nil && localVarOptionals.AccessToken.IsSet() {
-		localVarFormParams.Add("access_token", parameterToString(localVarOptionals.AccessToken.Value(), ""))
-	}
-	localVarFormParams.Add("permission", parameterToString(permission, ""))
+	// body params
+	localVarPostBody = &body
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
