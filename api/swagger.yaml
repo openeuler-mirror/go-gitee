@@ -13781,6 +13781,8 @@ definitions:
         type: "string"
       site_admin:
         type: "boolean"
+      email:
+        type: "string"
     description: "列出一个组织的所有成员"
     example:
       gists_url: "gists_url"
@@ -14960,6 +14962,8 @@ definitions:
       created_at:
         type: "string"
       updated_at:
+        type: "string"
+      email:
         type: "string"
     description: "搜索用户"
     example:
