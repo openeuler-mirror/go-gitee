@@ -704,7 +704,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostV5ReposOwnerRepoPullsNumberComments**
-> PullRequestComments PostV5ReposOwnerRepoPullsNumberComments(ctx, owner, repo, number, body, optional)
+> PullRequestComments PostV5ReposOwnerRepoPullsNumberComments(ctx, owner, repo, number, body)
 提交Pull Request评论
 
 提交Pull Request评论
@@ -717,22 +717,7 @@ Name | Type | Description  | Notes
   **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
   **repo** | **string**| 仓库路径(path) | 
   **number** | **int32**| 第几个PR，即本仓库PR的序数 | 
-  **body** | **string**| 必填。评论内容 | 
- **optional** | ***PostV5ReposOwnerRepoPullsNumberCommentsOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a PostV5ReposOwnerRepoPullsNumberCommentsOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-
- **accessToken** | **optional.String**| 用户授权码 | 
- **commitId** | **optional.String**| 可选。PR代码评论的commit id | 
- **path** | **optional.String**| 可选。PR代码评论的文件名 | 
- **position** | **optional.Int32**| 可选。PR代码评论diff中的行数 | 
+  **body** | [**PullRequestCommentPostParam**](PullRequestCommentPostParam.md)| 评论内容 | 
 
 ### Return type
 

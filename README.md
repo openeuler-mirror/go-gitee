@@ -285,6 +285,7 @@ Class | Method | HTTP request | Description
  - [ProjectMemberPermission](docs/ProjectMemberPermission.md)
  - [ProjectMemberPutParam](docs/ProjectMemberPutParam.md)
  - [PullRequest](docs/PullRequest.md)
+ - [PullRequestCommentPostParam](docs/PullRequestCommentPostParam.md)
  - [PullRequestComments](docs/PullRequestComments.md)
  - [PullRequestCommits](docs/PullRequestCommits.md)
  - [PullRequestFiles](docs/PullRequestFiles.md)
