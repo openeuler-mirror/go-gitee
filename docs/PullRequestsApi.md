@@ -778,7 +778,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutV5ReposOwnerRepoPullsNumberMerge**
-> PutV5ReposOwnerRepoPullsNumberMerge(ctx, owner, repo, number, optional)
+> PutV5ReposOwnerRepoPullsNumberMerge(ctx, owner, repo, number, body)
 合并Pull Request
 
 合并Pull Request
@@ -791,21 +791,7 @@ Name | Type | Description  | Notes
   **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
   **repo** | **string**| 仓库路径(path) | 
   **number** | **int32**| 第几个PR，即本仓库PR的序数 | 
- **optional** | ***PutV5ReposOwnerRepoPullsNumberMergeOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a PutV5ReposOwnerRepoPullsNumberMergeOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
- **accessToken** | **optional.String**| 用户授权码 | 
- **mergeMethod** | **optional.String**| 可选。合并PR的方法，merge（合并所有提交）和 squash（扁平化分支合并）。默认为merge。 | [default to merge]
- **pruneSourceBranch** | **optional.Bool**| 可选。合并PR后是否删除源分支，默认false（不删除） | 
- **title** | **optional.String**| 可选。合并标题，默认为PR的标题 | 
- **description** | **optional.String**| 可选。合并描述，默认为 \&quot;Merge pull request !{pr_id} from {author}/{source_branch}\&quot;，与页面显示的默认一致。 | 
+  **body** | [**PullRequestMergePutParam**](PullRequestMergePutParam.md)| PullRequest合入参数 | 
 
 ### Return type
 

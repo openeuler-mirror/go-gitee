@@ -289,6 +289,7 @@ Class | Method | HTTP request | Description
  - [PullRequestComments](docs/PullRequestComments.md)
  - [PullRequestCommits](docs/PullRequestCommits.md)
  - [PullRequestFiles](docs/PullRequestFiles.md)
+ - [PullRequestMergePutParam](docs/PullRequestMergePutParam.md)
  - [PullRequestUpdateParam](docs/PullRequestUpdateParam.md)
  - [Release](docs/Release.md)
  - [RepoCommit](docs/RepoCommit.md)

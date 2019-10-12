@@ -4362,13 +4362,6 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "access_token"
-        in: "formData"
-        description: "用户授权码"
-        required: false
-        type: "string"
-        x-exportParamName: "AccessToken"
-        x-optionalDataType: "String"
       - name: "owner"
         in: "path"
         description: "仓库所属空间地址(企业、组织或个人的地址path)"
@@ -4388,39 +4381,13 @@ paths:
         type: "integer"
         format: "int32"
         x-exportParamName: "Number"
-      - name: "merge_method"
-        in: "formData"
-        description: "可选。合并PR的方法，merge（合并所有提交）和 squash（扁平化分支合并）。默认为merge。"
-        required: false
-        type: "string"
-        default: "merge"
-        enum:
-        - "merge"
-        - "squash"
-        x-exportParamName: "MergeMethod"
-        x-optionalDataType: "String"
-      - name: "prune_source_branch"
-        in: "formData"
-        description: "可选。合并PR后是否删除源分支，默认false（不删除）"
-        required: false
-        type: "boolean"
-        x-exportParamName: "PruneSourceBranch"
-        x-optionalDataType: "Bool"
-      - name: "title"
-        in: "formData"
-        description: "可选。合并标题，默认为PR的标题"
-        required: false
-        type: "string"
-        x-exportParamName: "Title"
-        x-optionalDataType: "String"
-      - name: "description"
-        in: "formData"
-        description: "可选。合并描述，默认为 \"Merge pull request !{pr_id} from {author}/{source_branch}\"\
-          ，与页面显示的默认一致。"
-        required: false
-        type: "string"
-        x-exportParamName: "Description"
-        x-optionalDataType: "String"
+      - in: "body"
+        name: "body"
+        description: "PullRequest合入参数"
+        required: true
+        schema:
+          $ref: "#/definitions/PullRequestMergePutParam"
+        x-exportParamName: "Body"
       responses:
         200:
           description: "合并Pull Request"
@@ -4723,6 +4690,7 @@ paths:
         required: true
         schema:
           $ref: "#/definitions/PullRequestCommentPostParam"
+        x-exportParamName: "Body"
       responses:
         201:
           description: "返回格式"
@@ -15976,28 +15944,69 @@ definitions:
         x-exportParamName: "AccessToken"
         x-optionalDataType: "String"
       body:
-        description: "必填。评论内容"
-        required: true
         type: "string"
+        description: "必填。评论内容"
         x-exportParamName: "Body"
       commit_id:
-        description: "可选。PR代码评论的commit id"
-        required: false
         type: "string"
+        description: "可选。PR代码评论的commit id"
         x-exportParamName: "CommitId"
         x-optionalDataType: "String"
       path:
-        description: "可选。PR代码评论的文件名"
-        required: false
         type: "string"
+        description: "可选。PR代码评论的文件名"
         x-exportParamName: "Path"
         x-optionalDataType: "String"
       position:
-        in: "formData"
-        description: "可选。PR代码评论diff中的行数"
-        required: false
         type: "integer"
         format: "int32"
+        description: "可选。PR代码评论diff中的行数"
         x-exportParamName: "Position"
         x-optionalDataType: "Int32"
     description: "create pull request comment"
+    example:
+      access_token: "access_token"
+      path: "path"
+      position: 0
+      body: "body"
+      commit_id: "commit_id"
+  PullRequestMergePutParam:
+    type: "object"
+    properties:
+      access_token:
+        type: "string"
+        description: "用户授权码"
+        x-exportParamName: "AccessToken"
+        x-optionalDataType: "String"
+      merge_method:
+        type: "string"
+        description: "可选。合并PR的方法，merge（合并所有提交）和 squash（扁平化分支合并）。默认为merge。"
+        enum:
+        - "merge"
+        - "squash"
+        default: "merge"
+        x-exportParamName: "MergeMethod"
+        x-optionalDataType: "String"
+      prune_source_branch:
+        type: "boolean"
+        description: "可选。合并PR后是否删除源分支，默认false（不删除）"
+        x-exportParamName: "PruneSourceBranch"
+        x-optionalDataType: "Bool"
+      title:
+        type: "string"
+        description: "可选。合并标题，默认为PR的标题"
+        x-exportParamName: "Title"
+        x-optionalDataType: "String"
+      description:
+        type: "string"
+        description: "可选。合并描述，默认为 \"Merge pull request !{pr_id} from {author}/{source_branch}\"\
+          ，与页面显示的默认一致。"
+        x-exportParamName: "Description"
+        x-optionalDataType: "String"
+    description: "merge pull request parameter"
+    example:
+      access_token: "access_token"
+      path: "path"
+      position: 0
+      body: "body"
+      commit_id: "commit_id"
