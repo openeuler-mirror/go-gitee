@@ -13870,8 +13870,7 @@ definitions:
       url:
         type: "string"
       namespace:
-        type: "object"
-        properties: {}
+        type: "string"
       path:
         type: "string"
       name:

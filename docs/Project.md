@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **FullName** | **string** |  | [optional] [default to null]
 **HumanName** | **string** |  | [optional] [default to null]
 **Url** | **string** |  | [optional] [default to null]
-**Namespace** | [***interface{}**](interface{}.md) |  | [optional] [default to null]
+**Namespace** | **string** |  | [optional] [default to null]
 **Path** | **string** |  | [optional] [default to null]
 **Name** | **string** |  | [optional] [default to null]
 **Owner** | [***UserBasic**](UserBasic.md) |  | [optional] [default to null]
