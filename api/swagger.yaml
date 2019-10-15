@@ -9509,7 +9509,9 @@ paths:
         200:
           description: "返回格式"
           schema:
-            $ref: "#/definitions/Project"
+            type: "array"
+            items:
+              $ref: "#/definitions/Project"
     post:
       tags:
       - "Repositories"
