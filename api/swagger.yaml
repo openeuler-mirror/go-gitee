@@ -14225,11 +14225,11 @@ definitions:
       assignees:
         type: "array"
         items:
-          type: "string"
+          $ref: "#/definitions/UserBasic"
       testers:
         type: "array"
         items:
-          type: "string"
+          $ref: "#/definitions/UserBasic"
       milestone:
         $ref: "#/definitions/Milestone"
       labels:
