@@ -13776,7 +13776,6 @@ definitions:
         format: "int32"
       due_on:
         type: "string"
-        format: "date-time"
     description: "更新仓库里程碑"
     example:
       number: 5
