@@ -26,7 +26,7 @@ Method | HTTP request | Description
 [**GetV5ReposOwnerRepoCommitsRefComments**](RepositoriesApi.md#GetV5ReposOwnerRepoCommitsRefComments) | **Get** /v5/repos/{owner}/{repo}/commits/{ref}/comments | 获取单个Commit的评论
 [**GetV5ReposOwnerRepoCommitsSha**](RepositoriesApi.md#GetV5ReposOwnerRepoCommitsSha) | **Get** /v5/repos/{owner}/{repo}/commits/{sha} | 仓库的某个提交
 [**GetV5ReposOwnerRepoCompareBaseHead**](RepositoriesApi.md#GetV5ReposOwnerRepoCompareBaseHead) | **Get** /v5/repos/{owner}/{repo}/compare/{base}...{head} | 两个Commits之间对比的版本差异
-[**GetV5ReposOwnerRepoContentsPath**](RepositoriesApi.md#GetV5ReposOwnerRepoContentsPath) | **Get** /v5/repos/{owner}/{repo}/contents(/{path}) | 获取仓库具体路径下的内容
+[**GetV5ReposOwnerRepoContentsPath**](RepositoriesApi.md#GetV5ReposOwnerRepoContentsPath) | **Get** /v5/repos/{owner}/{repo}/contents/{path} | 获取仓库具体路径下的内容
 [**GetV5ReposOwnerRepoContributors**](RepositoriesApi.md#GetV5ReposOwnerRepoContributors) | **Get** /v5/repos/{owner}/{repo}/contributors | 获取仓库贡献者
 [**GetV5ReposOwnerRepoForks**](RepositoriesApi.md#GetV5ReposOwnerRepoForks) | **Get** /v5/repos/{owner}/{repo}/forks | 查看仓库的Forks
 [**GetV5ReposOwnerRepoKeys**](RepositoriesApi.md#GetV5ReposOwnerRepoKeys) | **Get** /v5/repos/{owner}/{repo}/keys | 获取仓库已部署的公钥

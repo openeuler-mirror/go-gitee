@@ -814,7 +814,7 @@ paths:
           description: "返回格式"
           schema:
             $ref: "#/definitions/Content"
-  /v5/repos/{owner}/{repo}/contents(/{path}):
+  /v5/repos/{owner}/{repo}/contents/{path}:
     get:
       tags:
       - "Repositories"
@@ -866,7 +866,6 @@ paths:
             type: "array"
             items:
               $ref: "#/definitions/Content"
-  /v5/repos/{owner}/{repo}/contents/{path}:
     post:
       tags:
       - "Repositories"
