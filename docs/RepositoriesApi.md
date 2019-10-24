@@ -973,7 +973,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetV5ReposOwnerRepoContentsPath**
-> []Content GetV5ReposOwnerRepoContentsPath(ctx, owner, repo, path, optional)
+> Content GetV5ReposOwnerRepoContentsPath(ctx, owner, repo, path, optional)
 获取仓库具体路径下的内容
 
 获取仓库具体路径下的内容
@@ -1001,7 +1001,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Content**](Content.md)
+[**Content**](Content.md)
 
 ### Authorization
 

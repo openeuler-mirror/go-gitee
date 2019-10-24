@@ -863,9 +863,7 @@ paths:
         200:
           description: "返回格式"
           schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/Content"
+            $ref: "#/definitions/Content"
     post:
       tags:
       - "Repositories"
