@@ -271,6 +271,7 @@ Class | Method | HTTP request | Description
  - [GroupMember](docs/GroupMember.md)
  - [Hook](docs/Hook.md)
  - [Issue](docs/Issue.md)
+ - [IssueCommentPostParam](docs/IssueCommentPostParam.md)
  - [IssueUpdateParam](docs/IssueUpdateParam.md)
  - [Label](docs/Label.md)
  - [Milestone](docs/Milestone.md)

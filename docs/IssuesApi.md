@@ -766,7 +766,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostV5ReposOwnerRepoIssuesNumberComments**
-> Note PostV5ReposOwnerRepoIssuesNumberComments(ctx, owner, repo, number, body, optional)
+> Note PostV5ReposOwnerRepoIssuesNumberComments(ctx, owner, repo, number, body)
 创建某个Issue评论
 
 创建某个Issue评论
@@ -779,19 +779,7 @@ Name | Type | Description  | Notes
   **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
   **repo** | **string**| 仓库路径(path) | 
   **number** | **string**| Issue 编号(区分大小写，无需添加 # 号) | 
-  **body** | **string**| The contents of the comment. | 
- **optional** | ***PostV5ReposOwnerRepoIssuesNumberCommentsOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a PostV5ReposOwnerRepoIssuesNumberCommentsOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-
- **accessToken** | **optional.String**| 用户授权码 | 
+  **body** | [**IssueCommentPostParam**](IssueCommentPostParam.md)| Issue comment内容 | 
 
 ### Return type
 
