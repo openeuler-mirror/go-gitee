@@ -14332,7 +14332,7 @@ definitions:
       original_commit_id:
         type: "string"
       user:
-        type: "string"
+        $ref: "#/definitions/UserBasic"
       body:
         type: "string"
       created_at:

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **OriginalPosition** | **string** |  | [optional] [default to null]
 **CommitId** | **string** |  | [optional] [default to null]
 **OriginalCommitId** | **string** |  | [optional] [default to null]
-**User** | **string** |  | [optional] [default to null]
+**User** | [***UserBasic**](UserBasic.md) |  | [optional] [default to null]
 **Body** | **string** |  | [optional] [default to null]
 **CreatedAt** | **string** |  | [optional] [default to null]
 **UpdatedAt** | **string** |  | [optional] [default to null]
