@@ -33,6 +33,11 @@ Name | Type | Description | Notes
 **Base** | [***BasicInfo**](BasicInfo.md) |  | [optional] [default to null]
 **Links** | **string** |  | [optional] [default to null]
 **User** | [***UserBasic**](UserBasic.md) |  | [optional] [default to null]
+**Comments** | **int32** |  | [optional] [default to null]
+**Commits** | **int32** |  | [optional] [default to null]
+**Additions** | **int32** |  | [optional] [default to null]
+**Deletions** | **int32** |  | [optional] [default to null]
+**ChangedFiles** | **int32** |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

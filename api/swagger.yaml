@@ -14246,6 +14246,21 @@ definitions:
         type: "string"
       user:
         $ref: "#/definitions/UserBasic"
+      comments:
+        type: "integer"
+        format: "int32"
+      commits:
+        type: "integer"
+        format: "int32"
+      additions:
+        type: "integer"
+        format: "int32"
+      deletions:
+        type: "integer"
+        format: "int32"
+      changed_files:
+        type: "integer"
+        format: "int32"
     description: "取消用户测试 Pull Request"
     example:
       issue_url: "issue_url"
