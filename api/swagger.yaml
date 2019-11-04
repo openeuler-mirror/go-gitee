@@ -13444,25 +13444,39 @@ definitions:
   Commit:
     type: "object"
     properties:
-      sha:
+      id:
         type: "string"
-      author:
+      tree_id:
         type: "string"
-      committer:
-        type: "string"
+      parent_ids:
+        type: "array"
+        items:
+          type: "string"
       message:
         type: "string"
-      tree:
+      timestamp:
         type: "string"
-      parents:
+        format: "date-time"
+      url:
         type: "string"
-    example:
-      committer: "committer"
-      author: "author"
-      tree: "tree"
-      message: "message"
-      sha: "sha"
-      parents: "parents"
+      author:
+        $ref: "#/definitions/UserBasic"
+      committer:
+        $ref: "#/definitions/UserBasic"
+      distinct:
+        type: "boolean"
+      added:
+        type: "array"
+        items:
+          type: "string"
+      removed:
+        type: "array"
+        items:
+          type: "string"
+      modified:
+        type: "array"
+        items:
+          type: "string"
   Blob:
     type: "object"
     properties:
