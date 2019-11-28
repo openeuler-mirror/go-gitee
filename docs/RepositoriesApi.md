@@ -2153,7 +2153,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutV5ReposOwnerRepoBranchesBranchProtection**
-> CompleteBranch PutV5ReposOwnerRepoBranchesBranchProtection(ctx, owner, repo, branch, optional)
+> CompleteBranch PutV5ReposOwnerRepoBranchesBranchProtection(ctx, owner, repo, branch, body)
 设置分支保护
 
 设置分支保护
@@ -2166,17 +2166,7 @@ Name | Type | Description  | Notes
   **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
   **repo** | **string**| 仓库路径(path) | 
   **branch** | **string**| 分支名称 | 
- **optional** | ***PutV5ReposOwnerRepoBranchesBranchProtectionOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a PutV5ReposOwnerRepoBranchesBranchProtectionOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
- **accessToken** | **optional.String**| 用户授权码 | 
+  **body** | [**BranchProtectionPutParam**](BranchProtectionPutParam.md)| 设置分支保护参数 | 
 
 ### Return type
 
