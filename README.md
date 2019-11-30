@@ -294,6 +294,7 @@ Class | Method | HTTP request | Description
  - [PullRequestUpdateParam](docs/PullRequestUpdateParam.md)
  - [Release](docs/Release.md)
  - [RepoCommit](docs/RepoCommit.md)
+ - [RepoPatchParam](docs/RepoPatchParam.md)
  - [RepositoryPostParam](docs/RepositoryPostParam.md)
  - [SshKey](docs/SshKey.md)
  - [SshKeyBasic](docs/SshKeyBasic.md)

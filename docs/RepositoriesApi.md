@@ -1583,7 +1583,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PatchV5ReposOwnerRepo**
-> Project PatchV5ReposOwnerRepo(ctx, owner, repo, name, optional)
+> Project PatchV5ReposOwnerRepo(ctx, owner, repo, body)
 更新仓库设置
 
 更新仓库设置
@@ -1595,24 +1595,7 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
   **repo** | **string**| 仓库路径(path) | 
-  **name** | **string**| 仓库名称 | 
- **optional** | ***PatchV5ReposOwnerRepoOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a PatchV5ReposOwnerRepoOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
- **accessToken** | **optional.String**| 用户授权码 | 
- **description** | **optional.String**| 仓库描述 | 
- **homepage** | **optional.String**| 主页(eg: https://gitee.com) | 
- **hasIssues** | **optional.Bool**| 允许提Issue与否。默认: 允许(true) | [default to true]
- **hasWiki** | **optional.Bool**| 提供Wiki与否。默认: 提供(true) | [default to true]
- **private** | **optional.Bool**| 仓库公开或私有。 | 
- **defaultBranch** | **optional.String**| 更新默认分支 | 
+  **body** | [**RepoPatchParam**](RepoPatchParam.md)| repo patch param | 
 
 ### Return type
 
