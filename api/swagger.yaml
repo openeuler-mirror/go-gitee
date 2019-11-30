@@ -16055,3 +16055,10 @@ definitions:
     description: "repo patch parameter"
     example:
       access_token: "access_token"
+      name: "name"
+      description: "description"
+      homepage: "https://gitee.com"
+      has_issues: true
+      has_wiki: true
+      private: false
+      default_branch: "master"
