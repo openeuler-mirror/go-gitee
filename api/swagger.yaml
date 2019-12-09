@@ -3250,13 +3250,6 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "access_token"
-        in: "formData"
-        description: "用户授权码"
-        required: false
-        type: "string"
-        x-exportParamName: "AccessToken"
-        x-optionalDataType: "String"
       - name: "owner"
         in: "path"
         description: "仓库所属空间地址(企业、组织或个人的地址path)"
@@ -3269,56 +3262,13 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Repo"
-      - name: "name"
-        in: "formData"
-        description: "仓库名称"
+      - in: "body"
+        name: "body"
+        description: "repo patch param"
         required: true
-        type: "string"
-        x-exportParamName: "Name"
-      - name: "description"
-        in: "formData"
-        description: "仓库描述"
-        required: false
-        type: "string"
-        x-exportParamName: "Description"
-        x-optionalDataType: "String"
-      - name: "homepage"
-        in: "formData"
-        description: "主页(eg: https://gitee.com)"
-        required: false
-        type: "string"
-        x-exportParamName: "Homepage"
-        x-optionalDataType: "String"
-      - name: "has_issues"
-        in: "formData"
-        description: "允许提Issue与否。默认: 允许(true)"
-        required: false
-        type: "boolean"
-        default: true
-        x-exportParamName: "HasIssues"
-        x-optionalDataType: "Bool"
-      - name: "has_wiki"
-        in: "formData"
-        description: "提供Wiki与否。默认: 提供(true)"
-        required: false
-        type: "boolean"
-        default: true
-        x-exportParamName: "HasWiki"
-        x-optionalDataType: "Bool"
-      - name: "private"
-        in: "formData"
-        description: "仓库公开或私有。"
-        required: false
-        type: "boolean"
-        x-exportParamName: "Private"
-        x-optionalDataType: "Bool"
-      - name: "default_branch"
-        in: "formData"
-        description: "更新默认分支"
-        required: false
-        type: "string"
-        x-exportParamName: "DefaultBranch"
-        x-optionalDataType: "String"
+        schema:
+          $ref: "#/definitions/RepoPatchParam"
+        x-exportParamName: "Body"
       responses:
         200:
           description: "返回格式"
@@ -16056,4 +16006,59 @@ definitions:
         x-optionalDataType: "String"
     description: "branch protection parameter"
     example:
-      access_token: "access_token" 
+      access_token: "access_token"
+  RepoPatchParam:
+    type: "object"
+    properties:
+      access_token:
+        type: "string"
+        description: "用户授权码"
+        x-exportParamName: "AccessToken"
+        x-optionalDataType: "String"
+      name:
+        type: "string"
+        description: "仓库名称"
+        x-exportParamName: "Name"
+        x-optionalDataType: "String"
+      description:
+        type: "string"
+        description: "仓库描述"
+        x-exportParamName: "Description"
+        x-optionalDataType: "String"
+      homepage:
+        type: "string"
+        description: "主页(eg: https://gitee.com)"
+        x-exportParamName: "Homepage"
+        x-optionalDataType: "String"
+      has_issues:
+        type: "boolean"
+        description: "允许提Issue与否。默认: 允许(true)"
+        default: true
+        x-exportParamName: "HasIssues"
+        x-optionalDataType: "Bool"
+      has_wiki:
+        type: "boolean"
+        description: "提供Wiki与否。默认: 提供(true)"
+        default: true
+        x-exportParamName: "HasWiki"
+        x-optionalDataType: "Bool"
+      private:
+        type: "boolean"
+        description: "仓库公开或私有。"
+        x-exportParamName: "Private"
+        x-optionalDataType: "Bool"
+      default_branch:
+        type: "string"
+        description: "更新默认分支"
+        x-exportParamName: "DefaultBranch"
+        x-optionalDataType: "String"
+    description: "repo patch parameter"
+    example:
+      access_token: "access_token"
+      name: "name"
+      description: "description"
+      homepage: "https://gitee.com"
+      has_issues: true
+      has_wiki: true
+      private: false
+      default_branch: "master"
