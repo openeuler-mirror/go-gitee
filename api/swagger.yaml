@@ -16031,22 +16031,22 @@ definitions:
         x-exportParamName: "Homepage"
         x-optionalDataType: "String"
       has_issues:
-        type: "boolean"
+        type: "string"
         description: "允许提Issue与否。默认: 允许(true)"
-        default: true
+        default: "true"
         x-exportParamName: "HasIssues"
-        x-optionalDataType: "Bool"
+        x-optionalDataType: "String"
       has_wiki:
-        type: "boolean"
+        type: "string"
         description: "提供Wiki与否。默认: 提供(true)"
-        default: true
+        default: "true"
         x-exportParamName: "HasWiki"
-        x-optionalDataType: "Bool"
+        x-optionalDataType: "String"
       private:
-        type: "boolean"
+        type: "string"
         description: "仓库公开或私有。"
         x-exportParamName: "Private"
-        x-optionalDataType: "Bool"
+        x-optionalDataType: "String"
       default_branch:
         type: "string"
         description: "更新默认分支"
@@ -16058,7 +16058,7 @@ definitions:
       name: "name"
       description: "description"
       homepage: "https://gitee.com"
-      has_issues: true
-      has_wiki: true
-      private: false
+      has_issues: "true"
+      has_wiki: "true"
+      private: "false"
       default_branch: "master"
