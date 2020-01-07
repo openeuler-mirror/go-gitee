@@ -15,7 +15,7 @@ type Project struct {
 	FullName            string     `json:"full_name,omitempty"`
 	HumanName           string     `json:"human_name,omitempty"`
 	Url                 string     `json:"url,omitempty"`
-	Namespace           string     `json:"namespace,omitempty"`
+	Namespace           *Namespace `json:"namespace,omitempty"`
 	Path                string     `json:"path,omitempty"`
 	Name                string     `json:"name,omitempty"`
 	Owner               *UserBasic `json:"owner,omitempty"`
@@ -59,7 +59,7 @@ type Project struct {
 	License             string     `json:"license,omitempty"`
 	Outsourced          bool       `json:"outsourced,omitempty"`
 	ProjectCreator      string     `json:"project_creator,omitempty"`
-	Members             string     `json:"members,omitempty"`
+	Members             []string   `json:"members,omitempty"`
 	PushedAt            string     `json:"pushed_at,omitempty"`
 	CreatedAt           string     `json:"created_at,omitempty"`
 	UpdatedAt           string     `json:"updated_at,omitempty"`
