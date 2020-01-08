@@ -13824,7 +13824,7 @@ definitions:
       url:
         type: "string"
       namespace:
-        type: "string"
+        $ref: "#/definitions/Namespace"
       path:
         type: "string"
       name:
@@ -13916,7 +13916,9 @@ definitions:
       project_creator:
         type: "string"
       members:
-        type: "string"
+        type: "array"
+        items:
+          type: "string"
       pushed_at:
         type: "string"
       created_at:
