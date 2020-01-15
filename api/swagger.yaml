@@ -5820,6 +5820,35 @@ paths:
           description: "执行成功"
         403:
           description: "没有权限"
+  /v5/emails:
+    get:
+      tags:
+      - "Emails"
+      summary: "获取授权用户的所有邮箱"
+      description: "获取授权用户的所有邮箱"
+      operationId: "getV5Emails"
+      consumes:
+      - "application/json"
+      - "multipart/form-data"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "access_token"
+        in: "query"
+        description: "用户授权码"
+        required: false
+        type: "string"
+        x-exportParamName: "AccessToken"
+        x-optionalDataType: "String"
+      responses:
+        200:
+          description: "返回格式"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Email"
+        404:
+          description: "没有相关数据"
   /v5/user/keys:
     get:
       tags:
@@ -13698,6 +13727,27 @@ definitions:
       site_admin: "site_admin"
       id: 5
       organizations_url: "organizations_url"
+  Email:
+    type: "object"
+    properties:
+      email:
+        type: "string"
+      state:
+        type: "string"
+      scope:
+        type: "array"
+        items:
+          type: "string"
+    description: "获取授权用户的邮件地址"
+    example:
+      email: "xxx@xx.com"
+      state: "confirmed"
+      scope:
+      - "primary"
+      - "secure"
+      - "notified"
+      - "commited"
+      - "public"
   Milestone:
     type: "object"
     properties:

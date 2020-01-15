@@ -12,13 +12,11 @@ package gitee
 import (
 	"context"
 	"fmt"
+	"github.com/antihax/optional"
 	"io/ioutil"
 	"net/http"
 	"net/url"
-	neturl "net/url"
 	"strings"
-
-	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -371,8 +369,8 @@ func (a *WebhooksApiService) PatchV5ReposOwnerRepoHooksId(ctx context.Context, o
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := neturl.Values{}
-	localVarFormParams := neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{"application/json", "multipart/form-data"}
@@ -504,8 +502,8 @@ func (a *WebhooksApiService) PostV5ReposOwnerRepoHooks(ctx context.Context, owne
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := neturl.Values{}
-	localVarFormParams := neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{"application/json", "multipart/form-data"}
