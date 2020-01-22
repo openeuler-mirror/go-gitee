@@ -13476,6 +13476,22 @@ definitions:
       sha: "sha"
       url: "url"
       content: "content"
+  TreeBasic:
+    type: "object"
+    properties:
+      path:
+        type: "string"
+      mode:
+        type: "string"
+      type:
+        type: "string"
+      sha:
+        type: "string"
+      size:
+        type: "integer"
+        format: "int32"
+      url:
+        type: "string"
   Tree:
     type: "object"
     properties:
@@ -13484,7 +13500,9 @@ definitions:
       url:
         type: "string"
       tree:
-        type: "string"
+        type: "array"
+        items:
+          $ref: "#/definitions/TreeBasic"
       truncated:
         type: "string"
     description: "获取目录Tree"

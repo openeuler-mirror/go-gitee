@@ -300,6 +300,7 @@ Class | Method | HTTP request | Description
  - [SshKeyBasic](docs/SshKeyBasic.md)
  - [Tag](docs/Tag.md)
  - [Tree](docs/Tree.md)
+ - [TreeBasic](docs/TreeBasic.md)
  - [User](docs/User.md)
  - [UserBasic](docs/UserBasic.md)
  - [UserMessage](docs/UserMessage.md)
