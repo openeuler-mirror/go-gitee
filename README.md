@@ -50,6 +50,7 @@ Class | Method | HTTP request | Description
 *ActivityApi* | [**PutV5ReposOwnerRepoNotifications**](docs/ActivityApi.md#putv5reposownerreponotifications) | **Put** /v5/repos/{owner}/{repo}/notifications | 标记一个仓库里的通知为已读
 *ActivityApi* | [**PutV5UserStarredOwnerRepo**](docs/ActivityApi.md#putv5userstarredownerrepo) | **Put** /v5/user/starred/{owner}/{repo} | star 一个仓库
 *ActivityApi* | [**PutV5UserSubscriptionsOwnerRepo**](docs/ActivityApi.md#putv5usersubscriptionsownerrepo) | **Put** /v5/user/subscriptions/{owner}/{repo} | watch 一个仓库
+*EmailsApi* | [**GetV5Emails**](docs/EmailsApi.md#getv5emails) | **Get** /v5/emails | 获取授权用户的所有邮箱
 *EnterprisesApi* | [**DeleteV5EnterprisesEnterpriseMembersUsername**](docs/EnterprisesApi.md#deletev5enterprisesenterprisemembersusername) | **Delete** /v5/enterprises/{enterprise}/members/{username} | 移除企业成员
 *EnterprisesApi* | [**DeleteV5EnterprisesEnterpriseWeekReportsReportIdCommentsId**](docs/EnterprisesApi.md#deletev5enterprisesenterpriseweekreportsreportidcommentsid) | **Delete** /v5/enterprises/{enterprise}/week_reports/{report_id}/comments/{id} | 删除周报某个评论
 *EnterprisesApi* | [**GetV5EnterprisesEnterprise**](docs/EnterprisesApi.md#getv5enterprisesenterprise) | **Get** /v5/enterprises/{enterprise} | 获取一个企业
@@ -252,6 +253,7 @@ Class | Method | HTTP request | Description
  - [BasicInfo](docs/BasicInfo.md)
  - [Blob](docs/Blob.md)
  - [Branch](docs/Branch.md)
+ - [BranchProtectionPutParam](docs/BranchProtectionPutParam.md)
  - [Code](docs/Code.md)
  - [CodeComment](docs/CodeComment.md)
  - [CodeForks](docs/CodeForks.md)
@@ -263,6 +265,7 @@ Class | Method | HTTP request | Description
  - [Content](docs/Content.md)
  - [ContentBasic](docs/ContentBasic.md)
  - [Contributor](docs/Contributor.md)
+ - [Email](docs/Email.md)
  - [EnterpriseBasic](docs/EnterpriseBasic.md)
  - [EnterpriseMember](docs/EnterpriseMember.md)
  - [Event](docs/Event.md)
