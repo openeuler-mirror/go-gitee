@@ -16117,6 +16117,11 @@ definitions:
         description: "仓库公开或私有。"
         x-exportParamName: "Private"
         x-optionalDataType: "String"
+      path:
+        type: "string"
+        description: "更新仓库路径"
+        x-exportParamName: "Path"
+        x-optionalDataType: "String"
       default_branch:
         type: "string"
         description: "更新默认分支"
@@ -16131,4 +16136,5 @@ definitions:
       has_issues: "true"
       has_wiki: "true"
       private: "false"
+      path: "new_repo_path"
       default_branch: "master"

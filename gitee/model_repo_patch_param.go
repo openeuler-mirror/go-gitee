@@ -25,6 +25,8 @@ type RepoPatchParam struct {
 	HasWiki string `json:"has_wiki,omitempty"`
 	// 仓库公开或私有。
 	Private string `json:"private,omitempty"`
+	// 更新仓库路径
+	Path string `json:"path,omitempty"`
 	// 更新默认分支
 	DefaultBranch string `json:"default_branch,omitempty"`
 }
