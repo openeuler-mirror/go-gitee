@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **HasIssues** | **string** | 允许提Issue与否。默认: 允许(true) | [optional] [default to null]
 **HasWiki** | **string** | 提供Wiki与否。默认: 提供(true) | [optional] [default to null]
 **Private** | **string** | 仓库公开或私有。 | [optional] [default to null]
+**Path** | **string** | 更新仓库路径 | [optional] [default to null]
 **DefaultBranch** | **string** | 更新默认分支 | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
