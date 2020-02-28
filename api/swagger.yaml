@@ -13973,6 +13973,8 @@ definitions:
         type: "boolean"
       has_wiki:
         type: "boolean"
+      can_comment:
+        type: "boolean"
       pull_requests_enabled:
         type: "boolean"
       has_page:
@@ -14045,6 +14047,7 @@ definitions:
       recommend: "recommend"
       keys_url: "keys_url"
       has_wiki: "has_wiki"
+      can_comment: false
       public: "public"
       updated_at: "updated_at"
       paas: "paas"
@@ -16111,6 +16114,11 @@ definitions:
         description: "提供Wiki与否。默认: 提供(true)"
         default: "true"
         x-exportParamName: "HasWiki"
+        x-optionalDataType: "String"
+      can_comment:
+        type: "string"
+        description: "允许用户对仓库进行评论"
+        x-exportParamName: "CanComment"
         x-optionalDataType: "String"
       private:
         type: "string"

@@ -54,6 +54,7 @@ type Project struct {
 	OpenIssuesCount     int32      `json:"open_issues_count,omitempty"`
 	HasIssues           bool       `json:"has_issues,omitempty"`
 	HasWiki             bool       `json:"has_wiki,omitempty"`
+	CanComment          bool       `json:"can_comment,omitempty"`
 	PullRequestsEnabled bool       `json:"pull_requests_enabled,omitempty"`
 	HasPage             bool       `json:"has_page,omitempty"`
 	License             string     `json:"license,omitempty"`
