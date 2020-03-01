@@ -46,6 +46,7 @@ Name | Type | Description | Notes
 **OpenIssuesCount** | **int32** |  | [optional] [default to null]
 **HasIssues** | **bool** |  | [optional] [default to null]
 **HasWiki** | **bool** |  | [optional] [default to null]
+**CanComment** | **bool** |  | [optional] [default to null]
 **PullRequestsEnabled** | **bool** |  | [optional] [default to null]
 **HasPage** | **bool** |  | [optional] [default to null]
 **License** | **string** |  | [optional] [default to null]
