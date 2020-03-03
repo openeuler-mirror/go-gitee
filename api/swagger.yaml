@@ -6345,6 +6345,14 @@ paths:
         default: true
         x-exportParamName: "HasWiki"
         x-optionalDataType: "Bool"
+      - name: "can_comment"
+        in: "formData"
+        description: "允许用户对仓库进行评论。默认: 允许(true)"
+        required: false
+        type: "boolean"
+        default: true
+        x-exportParamName: "CanComment"
+        x-optionalDataType: "Bool"
       - name: "auto_init"
         in: "formData"
         description: "值为true时则会用README初始化仓库。默认: 不初始化(false)"
