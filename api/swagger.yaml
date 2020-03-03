@@ -10932,6 +10932,14 @@ paths:
         default: true
         x-exportParamName: "HasWiki"
         x-optionalDataType: "Bool"
+      - name: "can_comment"
+        in: "formData"
+        description: "允许用户对仓库进行评论。默认： 允许(true)"
+        required: false
+        type: "boolean"
+        default: true
+        x-exportParamName: "CanComment"
+        x-optionalDataType: "Bool"
       - name: "enterprise"
         in: "path"
         description: "企业的路径(path/login)"
@@ -15693,6 +15701,12 @@ definitions:
         description: "提供Wiki与否。默认: 提供(true)"
         default: true
         x-exportParamName: "HasWiki"
+        x-optionalDataType: "Bool"
+      can_comment:
+        type: "boolean"
+        description: "允许用户对仓库进行评论。默认： 允许(true)"
+        default: true
+        x-exportParamName: "CanComment"
         x-optionalDataType: "Bool"
       public:
         type: "integer"

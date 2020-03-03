@@ -1730,6 +1730,7 @@ Name | Type | Description  | Notes
  **homepage** | **optional.String**| 主页(eg: https://gitee.com) | 
  **hasIssues** | **optional.Bool**| 允许提Issue与否。默认: 允许(true) | [default to true]
  **hasWiki** | **optional.Bool**| 提供Wiki与否。默认: 提供(true) | [default to true]
+ **canComment** | **optional.Bool**| 允许用户对仓库进行评论。默认： 允许(true) | [default to true]
  **autoInit** | **optional.Bool**| 值为true时则会用README初始化仓库。默认: 不初始化(false) | 
  **gitignoreTemplate** | **optional.String**| Git Ingore模版 | 
  **licenseTemplate** | **optional.String**| License模版 | 
