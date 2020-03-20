@@ -277,6 +277,7 @@ Class | Method | HTTP request | Description
  - [IssueCommentPostParam](docs/IssueCommentPostParam.md)
  - [IssueUpdateParam](docs/IssueUpdateParam.md)
  - [Label](docs/Label.md)
+ - [LabelPostParam](docs/LabelPostParam.md)
  - [Milestone](docs/Milestone.md)
  - [Namespace](docs/Namespace.md)
  - [NamespaceMini](docs/NamespaceMini.md)
