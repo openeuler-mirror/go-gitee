@@ -426,7 +426,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostV5ReposOwnerRepoLabels**
-> Label PostV5ReposOwnerRepoLabels(ctx, owner, repo, name, color, optional)
+> Label PostV5ReposOwnerRepoLabels(ctx, owner, repo, body)
 创建仓库任务标签
 
 创建仓库任务标签
@@ -436,22 +436,9 @@ No authorization required
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
-  **repo** | **string**| 仓库路径(path) | 
-  **name** | **string**| 标签名称 | 
-  **color** | **string**| 标签颜色。为6位的数字，如: 000000 | 
- **optional** | ***PostV5ReposOwnerRepoLabelsOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a PostV5ReposOwnerRepoLabelsOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-
- **accessToken** | **optional.String**| 用户授权码 | 
+  **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) |
+  **repo** | **string**| 仓库路径(path) |
+  **body** | [**LabelPostParam**](LabelPostParam.md)| 必选，标签的内容 |
 
 ### Return type
 

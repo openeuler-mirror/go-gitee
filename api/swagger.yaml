@@ -1678,13 +1678,6 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "access_token"
-        in: "formData"
-        description: "用户授权码"
-        required: false
-        type: "string"
-        x-exportParamName: "AccessToken"
-        x-optionalDataType: "String"
       - name: "owner"
         in: "path"
         description: "仓库所属空间地址(企业、组织或个人的地址path)"
@@ -1697,18 +1690,13 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Repo"
-      - name: "name"
-        in: "formData"
-        description: "标签名称"
+      - in: "body"
+        name: "body"
+        description: "必选，标签的内容"
         required: true
-        type: "string"
-        x-exportParamName: "Name"
-      - name: "color"
-        in: "formData"
-        description: "标签颜色。为6位的数字，如: 000000"
-        required: true
-        type: "string"
-        x-exportParamName: "Color"
+        schema:
+          $ref: "#/definitions/LabelPostParam"
+        x-exportParamName: "Body"
       responses:
         201:
           description: "返回格式"
@@ -16035,6 +16023,28 @@ definitions:
       position: 0
       body: "body"
       commit_id: "commit_id"
+  LabelPostParam:
+    type: "object"
+    properties:
+      access_token:
+        type: "string"
+        description: "用户授权码"
+        x-exportParamName: "AccessToken"
+        x-optionalDataType: "String"
+      name:
+        type: "string"
+        description: "标签的名称，必选。"
+        x-exportParamName: "Name"
+        x-optionalDataType: "String"
+      color:
+        type: "string"
+        description: "标签的颜色，为6位的数字，如: 000000，必选。"
+        x-exportParamName: "Color"
+        x-optionalDataType: "String"
+    example:
+      access_token: "access_token"
+      name: "lgtm"
+      color: "#ffffff"
   PullRequestMergePutParam:
     type: "object"
     properties:
