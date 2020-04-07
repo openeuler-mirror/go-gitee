@@ -265,6 +265,7 @@ Class | Method | HTTP request | Description
  - [Content](docs/Content.md)
  - [ContentBasic](docs/ContentBasic.md)
  - [Contributor](docs/Contributor.md)
+ - [CreatePullRequestParam](docs/CreatePullRequestParam.md)
  - [Email](docs/Email.md)
  - [EnterpriseBasic](docs/EnterpriseBasic.md)
  - [EnterpriseMember](docs/EnterpriseMember.md)

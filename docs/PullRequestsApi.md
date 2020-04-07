@@ -609,7 +609,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostV5ReposOwnerRepoPulls**
-> PullRequest PostV5ReposOwnerRepoPulls(ctx, owner, repo, title, head, base, optional)
+> PullRequest PostV5ReposOwnerRepoPulls(ctx, owner, repo, body)
 创建Pull Request
 
 创建Pull Request
@@ -621,29 +621,7 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
   **repo** | **string**| 仓库路径(path) | 
-  **title** | **string**| 必填。Pull Request 标题 | 
-  **head** | **string**| 必填。Pull Request 提交的源分支。格式：branch 或者：username:branch | 
-  **base** | **string**| 必填。Pull Request 提交目标分支的名称 | 
- **optional** | ***PostV5ReposOwnerRepoPullsOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a PostV5ReposOwnerRepoPullsOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-
-
- **accessToken** | **optional.String**| 用户授权码 | 
- **body** | **optional.String**| 可选。Pull Request 内容 | 
- **milestoneNumber** | **optional.Int32**| 可选。里程碑序号(id) | 
- **labels** | **optional.String**| 用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance | 
- **issue** | **optional.String**| 可选。Pull Request的标题和内容可以根据指定的Issue Id自动填充 | 
- **assignees** | **optional.String**| 可选。审查人员username，可多个，半角逗号分隔，如：(username1,username2) | 
- **testers** | **optional.String**| 可选。测试人员username，可多个，半角逗号分隔，如：(username1,username2) | 
- **pruneSourceBranch** | **optional.Bool**| 可选。合并PR后是否删除源分支，默认false（不删除） | 
+  **body** | [**CreatePullRequestParam**](CreatePullRequestParam.md)| pr的信息 | 
 
 ### Return type
 

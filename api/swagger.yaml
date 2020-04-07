@@ -3823,13 +3823,6 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "access_token"
-        in: "formData"
-        description: "用户授权码"
-        required: false
-        type: "string"
-        x-exportParamName: "AccessToken"
-        x-optionalDataType: "String"
       - name: "owner"
         in: "path"
         description: "仓库所属空间地址(企业、组织或个人的地址path)"
@@ -3842,74 +3835,12 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Repo"
-      - name: "title"
-        in: "formData"
-        description: "必填。Pull Request 标题"
-        required: true
-        type: "string"
-        x-exportParamName: "Title"
-      - name: "head"
-        in: "formData"
-        description: "必填。Pull Request 提交的源分支。格式：branch 或者：username:branch"
-        required: true
-        type: "string"
-        x-exportParamName: "Head"
-      - name: "base"
-        in: "formData"
-        description: "必填。Pull Request 提交目标分支的名称"
-        required: true
-        type: "string"
-        x-exportParamName: "Base"
       - name: "body"
-        in: "formData"
-        description: "可选。Pull Request 内容"
-        required: false
-        type: "string"
-        x-exportParamName: "Body"
-        x-optionalDataType: "String"
-      - name: "milestone_number"
-        in: "formData"
-        description: "可选。里程碑序号(id)"
-        required: false
-        type: "integer"
-        format: "int32"
-        x-exportParamName: "MilestoneNumber"
-        x-optionalDataType: "Int32"
-      - name: "labels"
-        in: "formData"
-        description: "用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance"
-        required: false
-        type: "string"
-        x-exportParamName: "Labels"
-        x-optionalDataType: "String"
-      - name: "issue"
-        in: "formData"
-        description: "可选。Pull Request的标题和内容可以根据指定的Issue Id自动填充"
-        required: false
-        type: "string"
-        x-exportParamName: "Issue"
-        x-optionalDataType: "String"
-      - name: "assignees"
-        in: "formData"
-        description: "可选。审查人员username，可多个，半角逗号分隔，如：(username1,username2)"
-        required: false
-        type: "string"
-        x-exportParamName: "Assignees"
-        x-optionalDataType: "String"
-      - name: "testers"
-        in: "formData"
-        description: "可选。测试人员username，可多个，半角逗号分隔，如：(username1,username2)"
-        required: false
-        type: "string"
-        x-exportParamName: "Testers"
-        x-optionalDataType: "String"
-      - name: "prune_source_branch"
-        in: "formData"
-        description: "可选。合并PR后是否删除源分支，默认false（不删除）"
-        required: false
-        type: "boolean"
-        x-exportParamName: "PruneSourceBranch"
-        x-optionalDataType: "Bool"
+        in: "body"
+        description: "pr的信息"
+        required: true
+        schema:
+          $ref: "#/definitions/CreatePullRequestParam"
       responses:
         201:
           description: "返回格式"
@@ -14216,6 +14147,74 @@ definitions:
       site_admin: "site_admin"
       id: 0
       organizations_url: "organizations_url"
+  CreatePullRequestParam:
+    type: "object"
+    properties:
+      access_token:
+        description: "用户授权码"
+        required: false
+        type: "string"
+        x-exportParamName: "AccessToken"
+        x-optionalDataType: "String"
+      title:
+        description: "必填。Pull Request 标题"
+        required: true
+        type: "string"
+        x-exportParamName: "Title"
+      head:
+        description: "必填。Pull Request 提交的源分支。格式：branch 或者：username:branch"
+        required: true
+        type: "string"
+        x-exportParamName: "Head"
+      base:
+        description: "必填。Pull Request 提交目标分支的名称"
+        required: true
+        type: "string"
+        x-exportParamName: "Base"
+      body:
+        description: "可选。Pull Request 内容"
+        required: false
+        type: "string"
+        x-exportParamName: "Body"
+        x-optionalDataType: "String"
+      milestone_number:
+        description: "可选。里程碑序号(id)"
+        required: false
+        type: "integer"
+        format: "int32"
+        x-exportParamName: "MilestoneNumber"
+        x-optionalDataType: "Int32"
+      labels:
+        description: "用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance"
+        required: false
+        type: "string"
+        x-exportParamName: "Labels"
+        x-optionalDataType: "String"
+      issue:
+        description: "可选。Pull Request的标题和内容可以根据指定的Issue Id自动填充"
+        required: false
+        type: "string"
+        x-exportParamName: "Issue"
+        x-optionalDataType: "String"
+      assignees:
+        description: "可选。审查人员username，可多个，半角逗号分隔，如：(username1,username2)"
+        required: false
+        type: "string"
+        x-exportParamName: "Assignees"
+        x-optionalDataType: "String"
+      testers:
+        description: "可选。测试人员username，可多个，半角逗号分隔，如：(username1,username2)"
+        required: false
+        type: "string"
+        x-exportParamName: "Testers"
+        x-optionalDataType: "String"
+      prune_source_branch:
+        description: "可选。合并PR后是否删除源分支，默认false（不删除）"
+        required: false
+        type: "boolean"
+        x-exportParamName: "PruneSourceBranch"
+        x-optionalDataType: "Bool"
+
   PullRequest:
     type: "object"
     properties:

@@ -1514,34 +1514,11 @@ PullRequestsApiService 创建Pull Request
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param owner 仓库所属空间地址(企业、组织或个人的地址path)
  * @param repo 仓库路径(path)
- * @param title 必填。Pull Request 标题
- * @param head 必填。Pull Request 提交的源分支。格式：branch 或者：username:branch
- * @param base 必填。Pull Request 提交目标分支的名称
- * @param optional nil or *PostV5ReposOwnerRepoPullsOpts - Optional Parameters:
-     * @param "AccessToken" (optional.String) -  用户授权码
-     * @param "Body" (optional.String) -  可选。Pull Request 内容
-     * @param "MilestoneNumber" (optional.Int32) -  可选。里程碑序号(id)
-     * @param "Labels" (optional.String) -  用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance
-     * @param "Issue" (optional.String) -  可选。Pull Request的标题和内容可以根据指定的Issue Id自动填充
-     * @param "Assignees" (optional.String) -  可选。审查人员username，可多个，半角逗号分隔，如：(username1,username2)
-     * @param "Testers" (optional.String) -  可选。测试人员username，可多个，半角逗号分隔，如：(username1,username2)
-     * @param "PruneSourceBranch" (optional.Bool) -  可选。合并PR后是否删除源分支，默认false（不删除）
+ * @param body pr的信息
 
 @return PullRequest
 */
-
-type PostV5ReposOwnerRepoPullsOpts struct {
-	AccessToken       optional.String
-	Body              optional.String
-	MilestoneNumber   optional.Int32
-	Labels            optional.String
-	Issue             optional.String
-	Assignees         optional.String
-	Testers           optional.String
-	PruneSourceBranch optional.Bool
-}
-
-func (a *PullRequestsApiService) PostV5ReposOwnerRepoPulls(ctx context.Context, owner string, repo string, title string, head string, base string, localVarOptionals *PostV5ReposOwnerRepoPullsOpts) (PullRequest, *http.Response, error) {
+func (a *PullRequestsApiService) PostV5ReposOwnerRepoPulls(ctx context.Context, owner string, repo string, body CreatePullRequestParam) (PullRequest, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}
@@ -1576,33 +1553,8 @@ func (a *PullRequestsApiService) PostV5ReposOwnerRepoPulls(ctx context.Context, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	if localVarOptionals != nil && localVarOptionals.AccessToken.IsSet() {
-		localVarFormParams.Add("access_token", parameterToString(localVarOptionals.AccessToken.Value(), ""))
-	}
-	localVarFormParams.Add("title", parameterToString(title, ""))
-	localVarFormParams.Add("head", parameterToString(head, ""))
-	localVarFormParams.Add("base", parameterToString(base, ""))
-	if localVarOptionals != nil && localVarOptionals.Body.IsSet() {
-		localVarFormParams.Add("body", parameterToString(localVarOptionals.Body.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.MilestoneNumber.IsSet() {
-		localVarFormParams.Add("milestone_number", parameterToString(localVarOptionals.MilestoneNumber.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Labels.IsSet() {
-		localVarFormParams.Add("labels", parameterToString(localVarOptionals.Labels.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Issue.IsSet() {
-		localVarFormParams.Add("issue", parameterToString(localVarOptionals.Issue.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Assignees.IsSet() {
-		localVarFormParams.Add("assignees", parameterToString(localVarOptionals.Assignees.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Testers.IsSet() {
-		localVarFormParams.Add("testers", parameterToString(localVarOptionals.Testers.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.PruneSourceBranch.IsSet() {
-		localVarFormParams.Add("prune_source_branch", parameterToString(localVarOptionals.PruneSourceBranch.Value(), ""))
-	}
+	// body params
+	localVarPostBody = &body
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
