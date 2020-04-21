@@ -168,7 +168,7 @@ paths:
         200:
           description: "返回格式"
           schema:
-            $ref: "#/definitions/CompleteBranch"
+            $ref: "#/definitions/Branch"
   /v5/repos/{owner}/{repo}/branches/{branch}/protection:
     put:
       tags:
@@ -3407,7 +3407,9 @@ paths:
         200:
           description: "返回格式"
           schema:
-            $ref: "#/definitions/ProjectMember"
+            type: "array"
+            items:
+              $ref: "#/definitions/ProjectMember"
   /v5/repos/{owner}/{repo}/collaborators/{username}:
     get:
       tags:
@@ -4689,6 +4691,147 @@ paths:
           description: "返回格式"
           schema:
             $ref: "#/definitions/PullRequestComments"
+  /v5/repos/{owner}/{repo}/pulls/{number}/labels:
+    parameters:
+    - name: "owner"
+      in: "path"
+      description: "仓库所属空间地址(企业、组织或个人的地址path)"
+      required: true
+      type: "string"
+      x-exportParamName: "Owner"
+    - name: "repo"
+      in: "path"
+      description: "仓库路径(path)"
+      required: true
+      type: "string"
+      x-exportParamName: "Repo"
+    - name: "number"
+      in: "path"
+      description: "第几个PR，即本仓库PR的序数"
+      required: true
+      type: "integer"
+      format: "int32"
+      x-exportParamName: "Number"
+
+    get:
+      tags:
+      - "Pull Requests"
+      summary: "获取某个 Pull Request 的所有标签"
+      description: "获取某个 Pull Request 的所有标签"
+      operationId: "getV5ReposOwnerRepoPullsNumberLabels"
+      consumes:
+      - "application/json"
+      - "multipart/form-data"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "access_token"
+        in: "query"
+        description: "用户授权码"
+        required: false
+        type: "string"
+        x-exportParamName: "AccessToken"
+        x-optionalDataType: "String"
+      - name: "page"
+        in: "query"
+        description: "当前的页码"
+        required: false
+        type: "integer"
+        default: 1
+        format: "int32"
+        x-exportParamName: "Page"
+        x-optionalDataType: "Int32"
+      - name: "per_page"
+        in: "query"
+        description: "每页的数量，最大为 100"
+        required: false
+        type: "integer"
+        default: 20
+        format: "int32"
+        x-exportParamName: "PerPage"
+        x-optionalDataType: "Int32"
+      responses:
+        200:
+          description: "返回格式"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Label"
+    post:
+      tags:
+      - "Pull Requests"
+      summary: "创建 Pull Request 标签"
+      description: "创建 Pull Request 标签"
+      operationId: "postV5ReposOwnerRepoPullsNumberLabels"
+      consumes:
+      - "application/json"
+      - "multipart/form-data"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "必选，标签的内容"
+        required: true
+        schema:
+          $ref: "#/definitions/PullRequestLabelPostParam"
+        x-exportParamName: "Body"
+      responses:
+        201:
+          description: "返回格式"
+          schema:
+            $ref: "#/definitions/Label"
+
+  /v5/repos/{owner}/{repo}/pulls/{number}/labels/{name}:
+    parameters:
+    - name: "owner"
+      in: "path"
+      description: "仓库所属空间地址(企业、组织或个人的地址path)"
+      required: true
+      type: "string"
+      x-exportParamName: "Owner"
+    - name: "repo"
+      in: "path"
+      description: "仓库路径(path)"
+      required: true
+      type: "string"
+      x-exportParamName: "Repo"
+    - name: "number"
+      in: "path"
+      description: "第几个PR，即本仓库PR的序数"
+      required: true
+      type: "integer"
+      format: "int32"
+      x-exportParamName: "Number"
+
+    delete:
+      tags:
+      - "Pull Requests"
+      summary: "删除 Pull Request 标签"
+      description: "删除 Pull Request 标签"
+      operationId: "deleteV5ReposOwnerRepoPullsLabel"
+      consumes:
+      - "application/json"
+      - "multipart/form-data"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "access_token"
+        in: "query"
+        description: "用户授权码"
+        required: false
+        type: "string"
+        x-exportParamName: "AccessToken"
+        x-optionalDataType: "String"
+      - name: "name"
+        in: "path"
+        description: "标签名称"
+        required: true
+        type: "string"
+        x-exportParamName: "Name"
+      responses:
+        204:
+          description: "删除Pull Request 标签"
   /v5/repos/{owner}/{repo}/releases:
     get:
       tags:
@@ -13149,9 +13292,9 @@ definitions:
       name:
         type: "string"
       commit:
-        type: "string"
+        $ref: "#/definitions/BranchCommit"
       protected:
-        type: "string"
+        type: "boolean"
       protection_url:
         type: "string"
     description: "获取所有分支"
@@ -13160,6 +13303,17 @@ definitions:
       name: "name"
       commit: "commit"
       protection_url: "protection_url"
+  BranchCommit:
+    type: "object"
+    properties:
+      url:
+        type: "string"
+      sha:
+        type: "string"
+    description: "分支commit info"
+    example:
+      sha: "sha"
+      url: "url"
   CompleteBranch:
     type: "object"
     properties:
@@ -14360,7 +14514,7 @@ definitions:
       url:
         type: "string"
       id:
-        type: "string"
+        type: "integer"
       path:
         type: "string"
       position:
@@ -15987,6 +16141,26 @@ definitions:
     example:
       access_token: "access_token"
       permission: "push"
+  PullRequestLabelPostParam:
+    type: "object"
+    properties:
+      access_token:
+        type: "string"
+        description: "用户授权码"
+        x-exportParamName: "AccessToken"
+        x-optionalDataType: "String"
+      body:
+        description: "标签名数组，如: [\"feat\", \"bug\"]"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "multi"
+        x-exportParamName: "Body"
+    description: "create pull request label"
+    example:
+      access_token: "access_token"
+      body: ["feat"]
   PullRequestCommentPostParam:
     type: "object"
     properties:

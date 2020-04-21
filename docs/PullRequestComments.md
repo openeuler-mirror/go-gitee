@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Url** | **string** |  | [optional] [default to null]
-**Id** | **string** |  | [optional] [default to null]
+**Id** | **int32** |  | [optional] [default to null]
 **Path** | **string** |  | [optional] [default to null]
 **Position** | **string** |  | [optional] [default to null]
 **OriginalPosition** | **string** |  | [optional] [default to null]

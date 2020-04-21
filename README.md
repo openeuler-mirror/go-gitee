@@ -145,6 +145,7 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**PostV5UsersOrganization**](docs/OrganizationsApi.md#postv5usersorganization) | **Post** /v5/users/organization | 创建组织
 *OrganizationsApi* | [**PutV5OrgsOrgMembershipsUsername**](docs/OrganizationsApi.md#putv5orgsorgmembershipsusername) | **Put** /v5/orgs/{org}/memberships/{username} | 增加或更新授权用户所管理组织的成员
 *PullRequestsApi* | [**DeleteV5ReposOwnerRepoPullsCommentsId**](docs/PullRequestsApi.md#deletev5reposownerrepopullscommentsid) | **Delete** /v5/repos/{owner}/{repo}/pulls/comments/{id} | 删除评论
+*PullRequestsApi* | [**DeleteV5ReposOwnerRepoPullsLabel**](docs/PullRequestsApi.md#deletev5reposownerrepopullslabel) | **Delete** /v5/repos/{owner}/{repo}/pulls/{number}/labels/{name} | 删除 Pull Request 标签
 *PullRequestsApi* | [**DeleteV5ReposOwnerRepoPullsNumberAssignees**](docs/PullRequestsApi.md#deletev5reposownerrepopullsnumberassignees) | **Delete** /v5/repos/{owner}/{repo}/pulls/{number}/assignees | 取消用户审查 Pull Request
 *PullRequestsApi* | [**DeleteV5ReposOwnerRepoPullsNumberTesters**](docs/PullRequestsApi.md#deletev5reposownerrepopullsnumbertesters) | **Delete** /v5/repos/{owner}/{repo}/pulls/{number}/testers | 取消用户测试 Pull Request
 *PullRequestsApi* | [**GetV5ReposOwnerRepoPulls**](docs/PullRequestsApi.md#getv5reposownerrepopulls) | **Get** /v5/repos/{owner}/{repo}/pulls | 获取Pull Request列表
@@ -154,6 +155,7 @@ Class | Method | HTTP request | Description
 *PullRequestsApi* | [**GetV5ReposOwnerRepoPullsNumberComments**](docs/PullRequestsApi.md#getv5reposownerrepopullsnumbercomments) | **Get** /v5/repos/{owner}/{repo}/pulls/{number}/comments | 获取某个Pull Request的所有评论
 *PullRequestsApi* | [**GetV5ReposOwnerRepoPullsNumberCommits**](docs/PullRequestsApi.md#getv5reposownerrepopullsnumbercommits) | **Get** /v5/repos/{owner}/{repo}/pulls/{number}/commits | 获取某Pull Request的所有Commit信息。最多显示250条Commit
 *PullRequestsApi* | [**GetV5ReposOwnerRepoPullsNumberFiles**](docs/PullRequestsApi.md#getv5reposownerrepopullsnumberfiles) | **Get** /v5/repos/{owner}/{repo}/pulls/{number}/files | Pull Request Commit文件列表。最多显示300条diff
+*PullRequestsApi* | [**GetV5ReposOwnerRepoPullsNumberLabels**](docs/PullRequestsApi.md#getv5reposownerrepopullsnumberlabels) | **Get** /v5/repos/{owner}/{repo}/pulls/{number}/labels | 获取某个 Pull Request 的所有标签
 *PullRequestsApi* | [**GetV5ReposOwnerRepoPullsNumberMerge**](docs/PullRequestsApi.md#getv5reposownerrepopullsnumbermerge) | **Get** /v5/repos/{owner}/{repo}/pulls/{number}/merge | 判断Pull Request是否已经合并
 *PullRequestsApi* | [**GetV5ReposOwnerRepoPullsNumberOperateLogs**](docs/PullRequestsApi.md#getv5reposownerrepopullsnumberoperatelogs) | **Get** /v5/repos/{owner}/{repo}/pulls/{number}/operate_logs | 获取某个Pull Request的操作日志
 *PullRequestsApi* | [**PatchV5ReposOwnerRepoPullsCommentsId**](docs/PullRequestsApi.md#patchv5reposownerrepopullscommentsid) | **Patch** /v5/repos/{owner}/{repo}/pulls/comments/{id} | 编辑评论
@@ -161,6 +163,7 @@ Class | Method | HTTP request | Description
 *PullRequestsApi* | [**PostV5ReposOwnerRepoPulls**](docs/PullRequestsApi.md#postv5reposownerrepopulls) | **Post** /v5/repos/{owner}/{repo}/pulls | 创建Pull Request
 *PullRequestsApi* | [**PostV5ReposOwnerRepoPullsNumberAssignees**](docs/PullRequestsApi.md#postv5reposownerrepopullsnumberassignees) | **Post** /v5/repos/{owner}/{repo}/pulls/{number}/assignees | 指派用户审查 Pull Request
 *PullRequestsApi* | [**PostV5ReposOwnerRepoPullsNumberComments**](docs/PullRequestsApi.md#postv5reposownerrepopullsnumbercomments) | **Post** /v5/repos/{owner}/{repo}/pulls/{number}/comments | 提交Pull Request评论
+*PullRequestsApi* | [**PostV5ReposOwnerRepoPullsNumberLabels**](docs/PullRequestsApi.md#postv5reposownerrepopullsnumberlabels) | **Post** /v5/repos/{owner}/{repo}/pulls/{number}/labels | 创建 Pull Request 标签
 *PullRequestsApi* | [**PostV5ReposOwnerRepoPullsNumberTesters**](docs/PullRequestsApi.md#postv5reposownerrepopullsnumbertesters) | **Post** /v5/repos/{owner}/{repo}/pulls/{number}/testers | 指派用户测试 Pull Request
 *PullRequestsApi* | [**PutV5ReposOwnerRepoPullsNumberMerge**](docs/PullRequestsApi.md#putv5reposownerrepopullsnumbermerge) | **Put** /v5/repos/{owner}/{repo}/pulls/{number}/merge | 合并Pull Request
 *RepositoriesApi* | [**DeleteV5ReposOwnerRepo**](docs/RepositoriesApi.md#deletev5reposownerrepo) | **Delete** /v5/repos/{owner}/{repo} | 删除一个仓库
@@ -253,6 +256,7 @@ Class | Method | HTTP request | Description
  - [BasicInfo](docs/BasicInfo.md)
  - [Blob](docs/Blob.md)
  - [Branch](docs/Branch.md)
+ - [BranchCommit](docs/BranchCommit.md)
  - [BranchProtectionPutParam](docs/BranchProtectionPutParam.md)
  - [Code](docs/Code.md)
  - [CodeComment](docs/CodeComment.md)
@@ -295,6 +299,7 @@ Class | Method | HTTP request | Description
  - [PullRequestComments](docs/PullRequestComments.md)
  - [PullRequestCommits](docs/PullRequestCommits.md)
  - [PullRequestFiles](docs/PullRequestFiles.md)
+ - [PullRequestLabelPostParam](docs/PullRequestLabelPostParam.md)
  - [PullRequestMergePutParam](docs/PullRequestMergePutParam.md)
  - [PullRequestUpdateParam](docs/PullRequestUpdateParam.md)
  - [Release](docs/Release.md)

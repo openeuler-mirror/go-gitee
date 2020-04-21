@@ -1,12 +1,10 @@
-# Branch
+# PullRequestLabelPostParam
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | [optional] [default to null]
-**Commit** | [***BranchCommit**](BranchCommit.md) |  | [optional] [default to null]
-**Protected** | **bool** |  | [optional] [default to null]
-**ProtectionUrl** | **string** |  | [optional] [default to null]
+**AccessToken** | **string** | 用户授权码 | [optional] [default to null]
+**Body** | **[]string** | 标签名数组，如: [\&quot;feat\&quot;, \&quot;bug\&quot;] | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
