@@ -168,7 +168,7 @@ paths:
         200:
           description: "返回格式"
           schema:
-            $ref: "#/definitions/CompleteBranch"
+            $ref: "#/definitions/Branch"
   /v5/repos/{owner}/{repo}/branches/{branch}/protection:
     put:
       tags:
@@ -13151,9 +13151,9 @@ definitions:
       name:
         type: "string"
       commit:
-        type: "string"
+        $ref: "#/definitions/BranchCommit"
       protected:
-        type: "string"
+        type: "boolean"
       protection_url:
         type: "string"
     description: "获取所有分支"
@@ -13162,6 +13162,17 @@ definitions:
       name: "name"
       commit: "commit"
       protection_url: "protection_url"
+  BranchCommit:
+    type: "object"
+    properties:
+      url:
+        type: "string"
+      sha:
+        type: "string"
+    description: "分支commit info"
+    example:
+      sha: "sha"
+      url: "url"
   CompleteBranch:
     type: "object"
     properties:

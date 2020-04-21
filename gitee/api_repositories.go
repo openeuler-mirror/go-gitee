@@ -1182,20 +1182,20 @@ RepositoriesApiService 获取单个分支
  * @param optional nil or *GetV5ReposOwnerRepoBranchesBranchOpts - Optional Parameters:
      * @param "AccessToken" (optional.String) -  用户授权码
 
-@return CompleteBranch
+@return Branch
 */
 
 type GetV5ReposOwnerRepoBranchesBranchOpts struct {
 	AccessToken optional.String
 }
 
-func (a *RepositoriesApiService) GetV5ReposOwnerRepoBranchesBranch(ctx context.Context, owner string, repo string, branch string, localVarOptionals *GetV5ReposOwnerRepoBranchesBranchOpts) (CompleteBranch, *http.Response, error) {
+func (a *RepositoriesApiService) GetV5ReposOwnerRepoBranchesBranch(ctx context.Context, owner string, repo string, branch string, localVarOptionals *GetV5ReposOwnerRepoBranchesBranchOpts) (Branch, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Get")
 		localVarPostBody    interface{}
 		localVarFileName    string
 		localVarFileBytes   []byte
-		localVarReturnValue CompleteBranch
+		localVarReturnValue Branch
 	)
 
 	// create path and map variables
@@ -1259,7 +1259,7 @@ func (a *RepositoriesApiService) GetV5ReposOwnerRepoBranchesBranch(ctx context.C
 		}
 
 		if localVarHttpResponse.StatusCode == 200 {
-			var v CompleteBranch
+			var v Branch
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

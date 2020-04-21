@@ -556,7 +556,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetV5ReposOwnerRepoBranchesBranch**
-> CompleteBranch GetV5ReposOwnerRepoBranchesBranch(ctx, owner, repo, branch, optional)
+> Branch GetV5ReposOwnerRepoBranchesBranch(ctx, owner, repo, branch, optional)
 获取单个分支
 
 获取单个分支
@@ -583,7 +583,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CompleteBranch**](CompleteBranch.md)
+[**Branch**](Branch.md)
 
 ### Authorization
 

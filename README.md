@@ -253,6 +253,7 @@ Class | Method | HTTP request | Description
  - [BasicInfo](docs/BasicInfo.md)
  - [Blob](docs/Blob.md)
  - [Branch](docs/Branch.md)
+ - [BranchCommit](docs/BranchCommit.md)
  - [BranchProtectionPutParam](docs/BranchProtectionPutParam.md)
  - [Code](docs/Code.md)
  - [CodeComment](docs/CodeComment.md)
