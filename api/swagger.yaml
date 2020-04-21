@@ -14362,7 +14362,7 @@ definitions:
       url:
         type: "string"
       id:
-        type: "string"
+        type: "integer"
       path:
         type: "string"
       position:
