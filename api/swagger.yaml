@@ -3407,7 +3407,9 @@ paths:
         200:
           description: "返回格式"
           schema:
-            $ref: "#/definitions/ProjectMember"
+            type: "array"
+            items:
+              $ref: "#/definitions/ProjectMember"
   /v5/repos/{owner}/{repo}/collaborators/{username}:
     get:
       tags:

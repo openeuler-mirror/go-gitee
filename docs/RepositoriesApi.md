@@ -597,7 +597,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetV5ReposOwnerRepoCollaborators**
-> ProjectMember GetV5ReposOwnerRepoCollaborators(ctx, owner, repo, optional)
+> []ProjectMember GetV5ReposOwnerRepoCollaborators(ctx, owner, repo, optional)
 获取仓库的所有成员
 
 获取仓库的所有成员
@@ -622,7 +622,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectMember**](ProjectMember.md)
+[**[]ProjectMember**](ProjectMember.md)
 
 ### Authorization
 
