@@ -5,6 +5,7 @@ All URIs are relative to *https://gitee.com/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeleteV5ReposOwnerRepoPullsCommentsId**](PullRequestsApi.md#DeleteV5ReposOwnerRepoPullsCommentsId) | **Delete** /v5/repos/{owner}/{repo}/pulls/comments/{id} | 删除评论
+[**DeleteV5ReposOwnerRepoPullsLabel**](PullRequestsApi.md#DeleteV5ReposOwnerRepoPullsLabel) | **Delete** /v5/repos/{owner}/{repo}/pulls/{number}/labels/{name} | 删除 Pull Request 标签
 [**DeleteV5ReposOwnerRepoPullsNumberAssignees**](PullRequestsApi.md#DeleteV5ReposOwnerRepoPullsNumberAssignees) | **Delete** /v5/repos/{owner}/{repo}/pulls/{number}/assignees | 取消用户审查 Pull Request
 [**DeleteV5ReposOwnerRepoPullsNumberTesters**](PullRequestsApi.md#DeleteV5ReposOwnerRepoPullsNumberTesters) | **Delete** /v5/repos/{owner}/{repo}/pulls/{number}/testers | 取消用户测试 Pull Request
 [**GetV5ReposOwnerRepoPulls**](PullRequestsApi.md#GetV5ReposOwnerRepoPulls) | **Get** /v5/repos/{owner}/{repo}/pulls | 获取Pull Request列表
@@ -14,6 +15,7 @@ Method | HTTP request | Description
 [**GetV5ReposOwnerRepoPullsNumberComments**](PullRequestsApi.md#GetV5ReposOwnerRepoPullsNumberComments) | **Get** /v5/repos/{owner}/{repo}/pulls/{number}/comments | 获取某个Pull Request的所有评论
 [**GetV5ReposOwnerRepoPullsNumberCommits**](PullRequestsApi.md#GetV5ReposOwnerRepoPullsNumberCommits) | **Get** /v5/repos/{owner}/{repo}/pulls/{number}/commits | 获取某Pull Request的所有Commit信息。最多显示250条Commit
 [**GetV5ReposOwnerRepoPullsNumberFiles**](PullRequestsApi.md#GetV5ReposOwnerRepoPullsNumberFiles) | **Get** /v5/repos/{owner}/{repo}/pulls/{number}/files | Pull Request Commit文件列表。最多显示300条diff
+[**GetV5ReposOwnerRepoPullsNumberLabels**](PullRequestsApi.md#GetV5ReposOwnerRepoPullsNumberLabels) | **Get** /v5/repos/{owner}/{repo}/pulls/{number}/labels | 获取某个 Pull Request 的所有标签
 [**GetV5ReposOwnerRepoPullsNumberMerge**](PullRequestsApi.md#GetV5ReposOwnerRepoPullsNumberMerge) | **Get** /v5/repos/{owner}/{repo}/pulls/{number}/merge | 判断Pull Request是否已经合并
 [**GetV5ReposOwnerRepoPullsNumberOperateLogs**](PullRequestsApi.md#GetV5ReposOwnerRepoPullsNumberOperateLogs) | **Get** /v5/repos/{owner}/{repo}/pulls/{number}/operate_logs | 获取某个Pull Request的操作日志
 [**PatchV5ReposOwnerRepoPullsCommentsId**](PullRequestsApi.md#PatchV5ReposOwnerRepoPullsCommentsId) | **Patch** /v5/repos/{owner}/{repo}/pulls/comments/{id} | 编辑评论
@@ -21,6 +23,7 @@ Method | HTTP request | Description
 [**PostV5ReposOwnerRepoPulls**](PullRequestsApi.md#PostV5ReposOwnerRepoPulls) | **Post** /v5/repos/{owner}/{repo}/pulls | 创建Pull Request
 [**PostV5ReposOwnerRepoPullsNumberAssignees**](PullRequestsApi.md#PostV5ReposOwnerRepoPullsNumberAssignees) | **Post** /v5/repos/{owner}/{repo}/pulls/{number}/assignees | 指派用户审查 Pull Request
 [**PostV5ReposOwnerRepoPullsNumberComments**](PullRequestsApi.md#PostV5ReposOwnerRepoPullsNumberComments) | **Post** /v5/repos/{owner}/{repo}/pulls/{number}/comments | 提交Pull Request评论
+[**PostV5ReposOwnerRepoPullsNumberLabels**](PullRequestsApi.md#PostV5ReposOwnerRepoPullsNumberLabels) | **Post** /v5/repos/{owner}/{repo}/pulls/{number}/labels | 创建 Pull Request 标签
 [**PostV5ReposOwnerRepoPullsNumberTesters**](PullRequestsApi.md#PostV5ReposOwnerRepoPullsNumberTesters) | **Post** /v5/repos/{owner}/{repo}/pulls/{number}/testers | 指派用户测试 Pull Request
 [**PutV5ReposOwnerRepoPullsNumberMerge**](PullRequestsApi.md#PutV5ReposOwnerRepoPullsNumberMerge) | **Put** /v5/repos/{owner}/{repo}/pulls/{number}/merge | 合并Pull Request
 
@@ -46,6 +49,49 @@ Optional parameters are passed through a pointer to a DeleteV5ReposOwnerRepoPull
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
+
+
+ **accessToken** | **optional.String**| 用户授权码 | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **DeleteV5ReposOwnerRepoPullsLabel**
+> DeleteV5ReposOwnerRepoPullsLabel(ctx, owner, repo, number, name, optional)
+删除 Pull Request 标签
+
+删除 Pull Request 标签
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) |
+  **repo** | **string**| 仓库路径(path) |
+  **number** | **int32**| 第几个PR，即本仓库PR的序数 |
+  **name** | **string**| 标签名称 |
+ **optional** | ***DeleteV5ReposOwnerRepoPullsLabelOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a DeleteV5ReposOwnerRepoPullsLabelOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 
 
@@ -451,6 +497,49 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetV5ReposOwnerRepoPullsNumberLabels**
+> []Label GetV5ReposOwnerRepoPullsNumberLabels(ctx, owner, repo, number, optional)
+获取某个 Pull Request 的所有标签
+
+获取某个 Pull Request 的所有标签
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) |
+  **repo** | **string**| 仓库路径(path) |
+  **number** | **int32**| 第几个PR，即本仓库PR的序数 |
+ **optional** | ***GetV5ReposOwnerRepoPullsNumberLabelsOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a GetV5ReposOwnerRepoPullsNumberLabelsOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **accessToken** | **optional.String**| 用户授权码 | 
+ **page** | **optional.Int32**| 当前的页码 | [default to 1]
+ **perPage** | **optional.Int32**| 每页的数量，最大为 100 | [default to 20]
+
+### Return type
+
+[**[]Label**](Label.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetV5ReposOwnerRepoPullsNumberMerge**
 > GetV5ReposOwnerRepoPullsNumberMerge(ctx, owner, repo, number, optional)
 判断Pull Request是否已经合并
@@ -700,6 +789,37 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PullRequestComments**](PullRequestComments.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostV5ReposOwnerRepoPullsNumberLabels**
+> Label PostV5ReposOwnerRepoPullsNumberLabels(ctx, owner, repo, number, body)
+创建 Pull Request 标签
+
+创建 Pull Request 标签
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) |
+  **repo** | **string**| 仓库路径(path) |
+  **number** | **int32**| 第几个PR，即本仓库PR的序数 |
+  **body** | [**PullRequestLabelPostParam**](PullRequestLabelPostParam.md)| 必选，标签的内容 |
+
+### Return type
+
+[**Label**](Label.md)
 
 ### Authorization
 
