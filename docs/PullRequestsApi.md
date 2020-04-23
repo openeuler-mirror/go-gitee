@@ -80,10 +80,10 @@ No authorization required
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) |
-  **repo** | **string**| 仓库路径(path) |
-  **number** | **int32**| 第几个PR，即本仓库PR的序数 |
-  **name** | **string**| 标签名称 |
+  **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
+  **repo** | **string**| 仓库路径(path) | 
+  **number** | **int32**| 第几个PR，即本仓库PR的序数 | 
+  **name** | **string**| 标签名称 | 
  **optional** | ***DeleteV5ReposOwnerRepoPullsLabelOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -508,9 +508,9 @@ No authorization required
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) |
-  **repo** | **string**| 仓库路径(path) |
-  **number** | **int32**| 第几个PR，即本仓库PR的序数 |
+  **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
+  **repo** | **string**| 仓库路径(path) | 
+  **number** | **int32**| 第几个PR，即本仓库PR的序数 | 
  **optional** | ***GetV5ReposOwnerRepoPullsNumberLabelsOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -728,7 +728,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostV5ReposOwnerRepoPullsNumberAssignees**
-> PullRequest PostV5ReposOwnerRepoPullsNumberAssignees(ctx, owner, repo, number, assignees, optional)
+> PullRequest PostV5ReposOwnerRepoPullsNumberAssignees(ctx, owner, repo, number, body)
 指派用户审查 Pull Request
 
 指派用户审查 Pull Request
@@ -741,19 +741,7 @@ Name | Type | Description  | Notes
   **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
   **repo** | **string**| 仓库路径(path) | 
   **number** | **int32**| 第几个PR，即本仓库PR的序数 | 
-  **assignees** | **string**| 用户的个人空间地址, 以 , 分隔 | 
- **optional** | ***PostV5ReposOwnerRepoPullsNumberAssigneesOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a PostV5ReposOwnerRepoPullsNumberAssigneesOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-
- **accessToken** | **optional.String**| 用户授权码 | 
+  **body** | [**PullRequestAssigneePostParam**](PullRequestAssigneePostParam.md)| 必选，标签的内容 | 
 
 ### Return type
 
@@ -812,10 +800,10 @@ No authorization required
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) |
-  **repo** | **string**| 仓库路径(path) |
-  **number** | **int32**| 第几个PR，即本仓库PR的序数 |
-  **body** | [**PullRequestLabelPostParam**](PullRequestLabelPostParam.md)| 必选，标签的内容 |
+  **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
+  **repo** | **string**| 仓库路径(path) | 
+  **number** | **int32**| 第几个PR，即本仓库PR的序数 | 
+  **body** | [**PullRequestLabelPostParam**](PullRequestLabelPostParam.md)| 必选，标签的内容 | 
 
 ### Return type
 
