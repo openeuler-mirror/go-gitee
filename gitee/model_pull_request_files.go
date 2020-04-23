@@ -30,5 +30,5 @@ type PullRequestFiles struct {
 	Deletions string     `json:"deletions,omitempty"`
 	BlobUrl   string     `json:"blob_url,omitempty"`
 	RawUrl    string     `json:"raw_url,omitempty"`
-	Patch     PRFilePath `json:"patch,omitempty"`
+	Patch *PullRequestFilePath `json:"patch,omitempty"`
 }
