@@ -1807,18 +1807,11 @@ PullRequestsApiService 指派用户审查 Pull Request
  * @param owner 仓库所属空间地址(企业、组织或个人的地址path)
  * @param repo 仓库路径(path)
  * @param number 第几个PR，即本仓库PR的序数
- * @param assignees 用户的个人空间地址, 以 , 分隔
- * @param optional nil or *PostV5ReposOwnerRepoPullsNumberAssigneesOpts - Optional Parameters:
-     * @param "AccessToken" (optional.String) -  用户授权码
+ * @param body 必选，标签的内容
 
 @return PullRequest
 */
-
-type PostV5ReposOwnerRepoPullsNumberAssigneesOpts struct {
-	AccessToken optional.String
-}
-
-func (a *PullRequestsApiService) PostV5ReposOwnerRepoPullsNumberAssignees(ctx context.Context, owner string, repo string, number int32, assignees string, localVarOptionals *PostV5ReposOwnerRepoPullsNumberAssigneesOpts) (PullRequest, *http.Response, error) {
+func (a *PullRequestsApiService) PostV5ReposOwnerRepoPullsNumberAssignees(ctx context.Context, owner string, repo string, number int32, body PullRequestAssigneePostParam) (PullRequest, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}
@@ -1854,10 +1847,8 @@ func (a *PullRequestsApiService) PostV5ReposOwnerRepoPullsNumberAssignees(ctx co
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	if localVarOptionals != nil && localVarOptionals.AccessToken.IsSet() {
-		localVarFormParams.Add("access_token", parameterToString(localVarOptionals.AccessToken.Value(), ""))
-	}
-	localVarFormParams.Add("assignees", parameterToString(assignees, ""))
+	// body params
+	localVarPostBody = &body
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
