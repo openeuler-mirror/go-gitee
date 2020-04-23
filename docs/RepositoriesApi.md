@@ -1872,7 +1872,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostV5ReposOwnerRepoContentsPath**
-> CommitContent PostV5ReposOwnerRepoContentsPath(ctx, owner, repo, path, content, message, optional)
+> CommitContent PostV5ReposOwnerRepoContentsPath(ctx, owner, repo, path, body)
 新建文件
 
 新建文件
@@ -1885,26 +1885,7 @@ Name | Type | Description  | Notes
   **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
   **repo** | **string**| 仓库路径(path) | 
   **path** | **string**| 文件的路径 | 
-  **content** | **string**| 文件内容, 要用 base64 编码 | 
-  **message** | **string**| 提交信息 | 
- **optional** | ***PostV5ReposOwnerRepoContentsPathOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a PostV5ReposOwnerRepoContentsPathOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-
-
- **accessToken** | **optional.String**| 用户授权码 | 
- **branch** | **optional.String**| 分支名称。默认为仓库对默认分支 | 
- **committerName** | **optional.String**| Committer的名字，默认为当前用户的名字 | 
- **committerEmail** | **optional.String**| Committer的邮箱，默认为当前用户的邮箱 | 
- **authorName** | **optional.String**| Author的名字，默认为当前用户的名字 | 
- **authorEmail** | **optional.String**| Author的邮箱，默认为当前用户的邮箱 | 
+  **body** | [**NewFileParam**](NewFileParam.md)| 描述文件信息 | 
 
 ### Return type
 

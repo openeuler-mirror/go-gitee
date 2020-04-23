@@ -876,13 +876,6 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "access_token"
-        in: "formData"
-        description: "用户授权码"
-        required: false
-        type: "string"
-        x-exportParamName: "AccessToken"
-        x-optionalDataType: "String"
       - name: "owner"
         in: "path"
         description: "仓库所属空间地址(企业、组织或个人的地址path)"
@@ -901,53 +894,13 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Path"
-      - name: "content"
-        in: "formData"
-        description: "文件内容, 要用 base64 编码"
+      - name: "body"
+        in: "body"
+        description: "描述文件信息"
         required: true
-        type: "string"
-        x-exportParamName: "Content"
-      - name: "message"
-        in: "formData"
-        description: "提交信息"
-        required: true
-        type: "string"
-        x-exportParamName: "Message"
-      - name: "branch"
-        in: "formData"
-        description: "分支名称。默认为仓库对默认分支"
-        required: false
-        type: "string"
-        x-exportParamName: "Branch"
-        x-optionalDataType: "String"
-      - name: "committer[name]"
-        in: "formData"
-        description: "Committer的名字，默认为当前用户的名字"
-        required: false
-        type: "string"
-        x-exportParamName: "CommitterName"
-        x-optionalDataType: "String"
-      - name: "committer[email]"
-        in: "formData"
-        description: "Committer的邮箱，默认为当前用户的邮箱"
-        required: false
-        type: "string"
-        x-exportParamName: "CommitterEmail"
-        x-optionalDataType: "String"
-      - name: "author[name]"
-        in: "formData"
-        description: "Author的名字，默认为当前用户的名字"
-        required: false
-        type: "string"
-        x-exportParamName: "AuthorName"
-        x-optionalDataType: "String"
-      - name: "author[email]"
-        in: "formData"
-        description: "Author的邮箱，默认为当前用户的邮箱"
-        required: false
-        type: "string"
-        x-exportParamName: "AuthorEmail"
-        x-optionalDataType: "String"
+        schema:
+          $ref: "#/definitions/NewFileParam"
+        x-exportParamName: "Body"
       responses:
         201:
           description: "返回格式"
@@ -14578,6 +14531,38 @@ definitions:
       sha: "sha"
       url: "url"
       parents: "parents"
+  PullRequestFilePath:
+    type: "object"
+    properties:
+      diff:
+        type: "string"
+      new_path:
+        type: "string"
+      old_path:
+        type: "string"
+      a_mode:
+        type: "string"
+      b_mode:
+        type: "string"
+      new_file:
+        type: "boolean"
+      renamed_file:
+        type: "boolean"
+      deleted_file:
+        type: "boolean"
+      too_large:
+        type: "boolean"
+    description: "单个文件的patch信息"
+    example:
+      diff: "patch"
+      new_path: "repo/src-test.yaml"
+      old_path: "repo/src-test.yaml"
+      a_mode: "100644"
+      b_mode: "100644"
+      new_file: false
+      renamed_file: false
+      deleted_file: false
+      too_large: false
   PullRequestFiles:
     type: "object"
     properties:
@@ -14596,7 +14581,7 @@ definitions:
       raw_url:
         type: "string"
       patch:
-        type: "string"
+        $ref: "#/definitions/PullRequestFilePath"
     description: "Pull Request Commit文件列表。最多显示300条diff"
     example:
       patch: "patch"
@@ -16362,3 +16347,55 @@ definitions:
       private: "false"
       path: "new_repo_path"
       default_branch: "master"
+  NewFileParam:
+    type: "object"
+    properties:
+      access_token:
+        type: "string"
+        description: "用户授权码"
+        x-exportParamName: "AccessToken"
+        x-optionalDataType: "String"
+      content:
+        type: "string"
+        description: "文件内容, 要用 base64 编码"
+        x-exportParamName: "Content"
+        x-optionalDataType: "String"
+      message:
+        type: "string"
+        description: "提交信息"
+        x-exportParamName: "Message"
+        x-optionalDataType: "String"
+      branch:
+        type: "string"
+        description: "分支名称。默认为仓库对默认分支"
+        x-exportParamName: "Branch"
+        x-optionalDataType: "String"
+      committer[name]:
+        type: "string"
+        description: "Committer的名字，默认为当前用户的名字"
+        x-exportParamName: "CommitterName"
+        x-optionalDataType: "String"
+      committer[email]:
+        type: "string"
+        description: "Committer的邮箱，默认为当前用户的邮箱"
+        x-exportParamName: "CommitterEmail"
+        x-optionalDataType: "String"
+      author[name]:
+        type: "string"
+        description: "Author的名字，默认为当前用户的名字"
+        x-exportParamName: "AuthorName"
+        x-optionalDataType: "String"
+      author[email]:
+        type: "string"
+        description: "Author的邮箱，默认为当前用户的邮箱"
+        x-exportParamName: "AuthorEmail"
+        x-optionalDataType: "String"
+    example:
+      access_token: "access_token"
+      content: "aGVsbG9nZW9yZ2U="
+      message: "add test file"
+      branch: "master"
+      committer[name]: "testcommitter"
+      committer[email]: "testcommiteremail"
+      author[name]: "testauthor"
+      author[email]: "testauthoremail"
