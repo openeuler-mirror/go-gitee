@@ -13267,7 +13267,7 @@ definitions:
       name:
         type: "string"
       commit:
-        type: "string"
+        $ref: "#/definitions/BranchCommit"
       _links:
         type: "string"
       protected:

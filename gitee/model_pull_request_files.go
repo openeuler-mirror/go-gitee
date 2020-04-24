@@ -9,18 +9,6 @@
 
 package gitee
 
-type PRFilePath struct {
-	Diff       string `json:"diff,omitempty"`
-	Newpath    string `json:"new_path,omitempty"`
-	Oldpath    string `json:"old_path,omitempty"`
-	Amode      string `json:"a_mode,omitempty"`
-	Bmode      string `json:"b_mode,omitempty"`
-	Newfile    bool   `json:"new_file,omitempty"`
-	Renamefile bool   `json:"renamed_file,omitempty"`
-	Deletefile bool   `json:"deleted_file,omitempty"`
-	Toolarge   bool   `json:"too_large,omitempty"`
-}
-
 // Pull Request Commit文件列表。最多显示300条diff
 type PullRequestFiles struct {
 	Sha       string     `json:"sha,omitempty"`
