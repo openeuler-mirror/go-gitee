@@ -16214,25 +16214,3 @@ definitions:
       committer[email]: "testcommiteremail"
       author[name]: "testauthor"
       author[email]: "testauthoremail"
-  BranchCommit:
-    type: "object"
-    properties:
-      sha:
-        type: "string"
-      url:
-        type: "string"
-      commit:
-        type: "string"
-      author:
-        type: "string"
-      parents:
-        type: "string"
-      committer:
-        type: "string"
-    example:
-      sha: "4305c9f5e855c5606dee104c9f153fefb6228153"
-      url: "https://gitee.com/testowner/testrepo/tree/master"
-      commit: "commitinfo"
-      author: "author"
-      parents: "testparent"
-      committer: "testcommiter"
