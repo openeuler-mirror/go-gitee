@@ -9,11 +9,8 @@
 
 package gitee
 
+// 分支commit info
 type BranchCommit struct {
-	Sha string `json:"sha,omitempty"`
 	Url string `json:"url,omitempty"`
-	Commit string `json:"commit,omitempty"`
-	Author string `json:"author,omitempty"`
-	Parents string `json:"parents,omitempty"`
-	Committer string `json:"committer,omitempty"`
+	Sha string `json:"sha,omitempty"`
 }
