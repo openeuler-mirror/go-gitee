@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Sha** | **string** |  | [optional] [default to null]
 **HtmlUrl** | **string** |  | [optional] [default to null]
 **CommentsUrl** | **string** |  | [optional] [default to null]
-**Commit** | **string** |  | [optional] [default to null]
+**Commit** | [***SingleCommit**](SingleCommit.md) |  | [optional] [default to null]
 **Author** | **string** |  | [optional] [default to null]
 **Committer** | **string** |  | [optional] [default to null]
 **Parents** | **string** |  | [optional] [default to null]

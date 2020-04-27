@@ -13293,7 +13293,7 @@ definitions:
       comments_url:
         type: "string"
       commit:
-        type: "string"
+        $ref: "#/definitions/SingleCommit"
       author:
         type: "string"
       committer:
@@ -13313,6 +13313,18 @@ definitions:
       sha: "sha"
       url: "url"
       parents: "parents"
+  SingleCommit:
+    type: "object"
+    properties:
+      tree:
+        $ref: "#/definitions/CommitTree"
+  CommitTree:
+    type: "object"
+    properties:
+      sha:
+        type: "string"
+      url:
+        type: "string"
   Compare:
     type: "object"
     properties:
