@@ -298,6 +298,7 @@ Class | Method | HTTP request | Description
  - [ProjectMemberPutParam](docs/ProjectMemberPutParam.md)
  - [PullRequest](docs/PullRequest.md)
  - [PullRequestAssigneePostParam](docs/PullRequestAssigneePostParam.md)
+ - [PullRequestCommentPatchParam](docs/PullRequestCommentPatchParam.md)
  - [PullRequestCommentPostParam](docs/PullRequestCommentPostParam.md)
  - [PullRequestComments](docs/PullRequestComments.md)
  - [PullRequestCommits](docs/PullRequestCommits.md)

@@ -4601,13 +4601,6 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "access_token"
-        in: "formData"
-        description: "用户授权码"
-        required: false
-        type: "string"
-        x-exportParamName: "AccessToken"
-        x-optionalDataType: "String"
       - name: "owner"
         in: "path"
         description: "仓库所属空间地址(企业、组织或个人的地址path)"
@@ -4628,10 +4621,11 @@ paths:
         format: "int32"
         x-exportParamName: "Id"
       - name: "body"
-        in: "formData"
+        in: "body"
         description: "必填。评论内容"
         required: true
-        type: "string"
+        schema:
+          $ref: "#/definitions/PullRequestCommentPatchParam"
         x-exportParamName: "Body"
       responses:
         200:
@@ -16169,6 +16163,23 @@ definitions:
     example:
       access_token: "access_token"
       body: ["feat"]
+  PullRequestCommentPatchParam:
+    type: "object"
+    properties:
+      access_token:
+        type: "string"
+        description: "用户授权码"
+        x-exportParamName: "AccessToken"
+        x-optionalDataType: "String"
+      body:
+        type: "string"
+        description: "必填。评论内容"
+        x-exportParamName: "Body"
+        required: true
+    description: "edit pull request comment"
+    example:
+      access_token: "access_token"
+      body: "body"
   PullRequestCommentPostParam:
     type: "object"
     properties:
