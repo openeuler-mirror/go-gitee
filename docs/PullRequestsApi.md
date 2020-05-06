@@ -624,7 +624,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PatchV5ReposOwnerRepoPullsCommentsId**
-> PullRequestComments PatchV5ReposOwnerRepoPullsCommentsId(ctx, owner, repo, id, body, optional)
+> PullRequestComments PatchV5ReposOwnerRepoPullsCommentsId(ctx, owner, repo, id, body)
 编辑评论
 
 编辑评论
@@ -637,19 +637,7 @@ Name | Type | Description  | Notes
   **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
   **repo** | **string**| 仓库路径(path) | 
   **id** | **int32**| 评论的ID | 
-  **body** | **string**| 必填。评论内容 | 
- **optional** | ***PatchV5ReposOwnerRepoPullsCommentsIdOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a PatchV5ReposOwnerRepoPullsCommentsIdOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-
- **accessToken** | **optional.String**| 用户授权码 | 
+  **body** | [**PullRequestCommentPatchParam**](PullRequestCommentPatchParam.md)| 必填。评论内容 | 
 
 ### Return type
 
