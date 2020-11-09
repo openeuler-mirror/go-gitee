@@ -1784,7 +1784,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostV5ReposOwnerRepoBranches**
-> CompleteBranch PostV5ReposOwnerRepoBranches(ctx, owner, repo, refs, branchName, optional)
+> CompleteBranch PostV5ReposOwnerRepoBranches(ctx, owner, repo, body)
 创建分支
 
 创建分支
@@ -1796,20 +1796,7 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
   **repo** | **string**| 仓库路径(path) | 
-  **refs** | **string**| 起点名称, 默认：master | [default to master]
-  **branchName** | **string**| 新创建的分支名称 | 
- **optional** | ***PostV5ReposOwnerRepoBranchesOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a PostV5ReposOwnerRepoBranchesOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-
- **accessToken** | **optional.String**| 用户授权码 | 
+  **body** | [**CreateBranchParam**](CreateBranchParam.md)| 新建分支内容 | 
 
 ### Return type
 
