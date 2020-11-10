@@ -16474,17 +16474,17 @@ definitions:
         description: "用户授权码"
         x-exportParamName: "AccessToken"
         x-optionalDataType: "String"
-      assigneers:
+      assignees:
         type: "string"
         description: "审查人员"
-        x-exportParamName: "Assigneers"
+        x-exportParamName: "Assignees"
         x-optionalDataType: "String"
       testers:
         type: "string"
         description: "测试人员"
         x-exportParamName: "Testers"
         x-optionalDataType: "String"
-      assigneers_number:
+      assignees_number:
         type: "integer"
         description: "最少审查人数"
         x-exportParamName: "AssigneesNumber"
@@ -16496,7 +16496,7 @@ definitions:
         x-optionalDataType: "Int32"
     example:
       access_token: "access_token"
-      assigneers: "testassigneers"
+      assignees: "testassigneers"
       testers: "testtesters"
-      assigneers_number: 0
+      assignees_number: 0
       testers_number: 0
