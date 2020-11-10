@@ -221,6 +221,7 @@ Class | Method | HTTP request | Description
 *RepositoriesApi* | [**PutV5ReposOwnerRepoCollaboratorsUsername**](docs/RepositoriesApi.md#putv5reposownerrepocollaboratorsusername) | **Put** /v5/repos/{owner}/{repo}/collaborators/{username} | 添加仓库成员
 *RepositoriesApi* | [**PutV5ReposOwnerRepoContentsPath**](docs/RepositoriesApi.md#putv5reposownerrepocontentspath) | **Put** /v5/repos/{owner}/{repo}/contents/{path} | 更新文件
 *RepositoriesApi* | [**PutV5ReposOwnerRepoKeysEnableId**](docs/RepositoriesApi.md#putv5reposownerrepokeysenableid) | **Put** /v5/repos/{owner}/{repo}/keys/enable/{id} | 启用仓库公钥
+*RepositoriesApi* | [**PutV5ReposOwnerRepoReviewer**](docs/RepositoriesApi.md#putv5reposownerreporeviewer) | **Put** /v5/repos/{owner}/{repo}/reviewer | 修改代码审查设置
 *SearchApi* | [**GetV5SearchGists**](docs/SearchApi.md#getv5searchgists) | **Get** /v5/search/gists | 搜索代码片段
 *SearchApi* | [**GetV5SearchIssues**](docs/SearchApi.md#getv5searchissues) | **Get** /v5/search/issues | 搜索 Issues
 *SearchApi* | [**GetV5SearchRepositories**](docs/SearchApi.md#getv5searchrepositories) | **Get** /v5/search/repositories | 搜索仓库
@@ -312,6 +313,7 @@ Class | Method | HTTP request | Description
  - [RepoCommit](docs/RepoCommit.md)
  - [RepoPatchParam](docs/RepoPatchParam.md)
  - [RepositoryPostParam](docs/RepositoryPostParam.md)
+ - [SetRepoReviewer](docs/SetRepoReviewer.md)
  - [SingleCommit](docs/SingleCommit.md)
  - [SshKey](docs/SshKey.md)
  - [SshKeyBasic](docs/SshKeyBasic.md)

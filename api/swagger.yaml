@@ -3202,6 +3202,41 @@ paths:
           description: "返回格式"
           schema:
             $ref: "#/definitions/Project"
+  /v5/repos/{owner}/{repo}/reviewer:
+    put:
+      tags:
+      - "Repositories"
+      summary: "修改代码审查设置"
+      description: "修改代码审查设置"
+      operationId: "putV5ReposOwnerRepoReviewer"
+      consumes:
+      - "application/json"
+      - "multipart/form-data"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "owner"
+        in: "path"
+        description: "仓库所属空间地址(企业、组织或个人的地址path)"
+        required: true
+        type: "string"
+        x-exportParamName: "Owner"
+      - name: "repo"
+        in: "path"
+        description: "仓库路径(path)"
+        required: true
+        type: "string"
+        x-exportParamName: "Repo"
+      - name: "body"
+        in: "body"
+        description: "修改代码审查的信息"
+        required: true
+        schema:
+          $ref: "#/definitions/SetRepoReviewer"
+        x-exportParamName: "Body"
+      responses:
+        200:
+          description: "设置审查成功"
   /v5/repos/{owner}/{repo}/contributors:
     get:
       tags:
@@ -16409,3 +16444,59 @@ definitions:
       committer[email]: "testcommiteremail"
       author[name]: "testauthor"
       author[email]: "testauthoremail"
+  CreateBranchParam:
+    type: "object"
+    properties:
+      access_token:
+        type: "string"
+        description: "用户授权码"
+        x-exportParamName: "AccessToken"
+        x-optionalDataType: "String"
+      refs:
+        type: "string"
+        description: "分支起点名称，默认master"
+        x-exportParamName: "BranchRefs"
+        x-optionalDataType: "String"
+      branch_name:
+        type: "string"
+        description: "新创建的分支名称"
+        x-exportParamName: "BranchName"
+        x-optionalDataType: "String"
+    example:
+      access_token: "access_token"
+      refs: "testbranch"
+      branch_name: "newbranch"
+  SetRepoReviewer:
+    type: "object"
+    properties:
+      access_token:
+        type: "string"
+        description: "用户授权码"
+        x-exportParamName: "AccessToken"
+        x-optionalDataType: "String"
+      assigneers:
+        type: "string"
+        description: "审查人员"
+        x-exportParamName: "Assigneers"
+        x-optionalDataType: "String"
+      testers:
+        type: "string"
+        description: "测试人员"
+        x-exportParamName: "Testers"
+        x-optionalDataType: "String"
+      assigneers_number:
+        type: "integer"
+        description: "最少审查人数"
+        x-exportParamName: "AssigneesNumber"
+        x-optionalDataType: "Int32"
+      testers_number:
+        type: "integer"
+        description: "最少测试人员"
+        x-exportParamName: "TestersNumber"
+        x-optionalDataType: "Int32"
+    example:
+      access_token: "access_token"
+      assigneers: "testassigneers"
+      testers: "testtesters"
+      assigneers_number: 0
+      testers_number: 0
