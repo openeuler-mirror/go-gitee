@@ -59,6 +59,7 @@ Method | HTTP request | Description
 [**PutV5ReposOwnerRepoCollaboratorsUsername**](RepositoriesApi.md#PutV5ReposOwnerRepoCollaboratorsUsername) | **Put** /v5/repos/{owner}/{repo}/collaborators/{username} | 添加仓库成员
 [**PutV5ReposOwnerRepoContentsPath**](RepositoriesApi.md#PutV5ReposOwnerRepoContentsPath) | **Put** /v5/repos/{owner}/{repo}/contents/{path} | 更新文件
 [**PutV5ReposOwnerRepoKeysEnableId**](RepositoriesApi.md#PutV5ReposOwnerRepoKeysEnableId) | **Put** /v5/repos/{owner}/{repo}/keys/enable/{id} | 启用仓库公钥
+[**PutV5ReposOwnerRepoReviewer**](RepositoriesApi.md#PutV5ReposOwnerRepoReviewer) | **Put** /v5/repos/{owner}/{repo}/reviewer | 修改代码审查设置
 
 
 # **DeleteV5ReposOwnerRepo**
@@ -2283,6 +2284,36 @@ Name | Type | Description  | Notes
 
 
  **accessToken** | **optional.String**| 用户授权码 | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutV5ReposOwnerRepoReviewer**
+> PutV5ReposOwnerRepoReviewer(ctx, owner, repo, body)
+修改代码审查设置
+
+修改代码审查设置
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) |
+  **repo** | **string**| 仓库路径(path) |
+  **body** | [**SetRepoReviewer**](SetRepoReviewer.md)| 修改代码审查的信息 |
 
 ### Return type
 
