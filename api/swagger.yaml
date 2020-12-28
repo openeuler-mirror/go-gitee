@@ -14530,6 +14530,30 @@ definitions:
       position: "position"
       commit_id: "commit_id"
       user: "user"
+  GitUser:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      email:
+        type: "string"
+      date:
+        type: "string"
+        format: "date-time"
+  GitCommit:
+    type: "object"
+    properties:
+      url:
+        type: "string"
+      author:
+        $ref: "#/definitions/GitUser"
+      committer:
+        $ref: "#/definitions/GitUser"
+      message:
+        type: "string"
+      comment_count:
+        type: integer
+        format: int32
   PullRequestCommits:
     type: "object"
     properties:
@@ -14542,13 +14566,13 @@ definitions:
       comments_url:
         type: "string"
       commit:
-        type: "string"
+        $ref: "#/definitions/GitCommit"
       author:
-        type: "string"
+        $ref: "#/definitions/UserBasic"
       committer:
-        type: "string"
+        $ref: "#/definitions/UserBasic"
       parents:
-        type: "string"
+        $ref: "#/definitions/CommitTree"
     description: "获取某Pull Request的所有Commit信息。最多显示250条Commit"
     example:
       committer: "committer"
