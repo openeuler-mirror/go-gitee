@@ -11,12 +11,12 @@ package gitee
 
 // 获取某Pull Request的所有Commit信息。最多显示250条Commit
 type PullRequestCommits struct {
-	Url         string       `json:"url,omitempty"`
-	Sha         string       `json:"sha,omitempty"`
-	HtmlUrl     string       `json:"html_url,omitempty"`
-	CommentsUrl string       `json:"comments_url,omitempty"`
-	Commit      Commit       `json:"commit,omitempty"`
-	Author      UserBasic    `json:"author,omitempty"`
-	Committer   UserBasic    `json:"committer,omitempty"`
-	Parents     CommitTree   `json:"parents,omitempty"`
+	Url         string      `json:"url,omitempty"`
+	Sha         string      `json:"sha,omitempty"`
+	HtmlUrl     string      `json:"html_url,omitempty"`
+	CommentsUrl string      `json:"comments_url,omitempty"`
+	Commit      *GitCommit  `json:"commit,omitempty"`
+	Author      *UserBasic  `json:"author,omitempty"`
+	Committer   *UserBasic  `json:"committer,omitempty"`
+	Parents     *CommitTree `json:"parents,omitempty"`
 }
