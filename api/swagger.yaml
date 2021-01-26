@@ -1865,20 +1865,21 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Number"
-      - name: "body"
-        in: "formData"
+      - in: "body"
+        name: "body"
         description: "标签名数组，如: [\"feat\", \"bug\"]"
-        required: false
+        required: true
         type: "array"
         items:
           type: "string"
-        collectionFormat: "multi"
         x-exportParamName: "Body"
       responses:
         201:
           description: "返回格式"
           schema:
-            $ref: "#/definitions/Label"
+            type: "array"
+            items:
+              $ref: "#/definitions/Label"
     put:
       tags:
       - "Labels"
