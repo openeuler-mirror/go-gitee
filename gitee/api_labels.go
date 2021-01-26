@@ -909,7 +909,7 @@ LabelsApiService 创建Issue标签
      * @param "AccessToken" (optional.String) -  用户授权码
      * @param "Body" (optional.Interface of []string) -  标签名数组，如: [\&quot;feat\&quot;, \&quot;bug\&quot;]
 
-@return Label
+@return []Label
 */
 
 type PostV5ReposOwnerRepoIssuesNumberLabelsOpts struct {
@@ -917,13 +917,13 @@ type PostV5ReposOwnerRepoIssuesNumberLabelsOpts struct {
 	Body        optional.Interface
 }
 
-func (a *LabelsApiService) PostV5ReposOwnerRepoIssuesNumberLabels(ctx context.Context, owner string, repo string, number string, localVarOptionals *PostV5ReposOwnerRepoIssuesNumberLabelsOpts) (Label, *http.Response, error) {
+func (a *LabelsApiService) PostV5ReposOwnerRepoIssuesNumberLabels(ctx context.Context, owner string, repo string, number string, localVarOptionals *PostV5ReposOwnerRepoIssuesNumberLabelsOpts) ([]Label, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}
 		localVarFileName    string
 		localVarFileBytes   []byte
-		localVarReturnValue Label
+		localVarReturnValue []Label
 	)
 
 	// create path and map variables
@@ -953,11 +953,8 @@ func (a *LabelsApiService) PostV5ReposOwnerRepoIssuesNumberLabels(ctx context.Co
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	if localVarOptionals != nil && localVarOptionals.AccessToken.IsSet() {
-		localVarFormParams.Add("access_token", parameterToString(localVarOptionals.AccessToken.Value(), ""))
-	}
 	if localVarOptionals != nil && localVarOptionals.Body.IsSet() {
-		localVarFormParams.Add("body", parameterToString(localVarOptionals.Body.Value(), "multi"))
+		localVarPostBody = localVarOptionals.Body.Value()
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
