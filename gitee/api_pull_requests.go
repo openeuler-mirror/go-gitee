@@ -1530,13 +1530,13 @@ type GetV5ReposOwnerRepoPullsNumberOperateLogsOpts struct {
 	Sort        optional.String
 }
 
-func (a *PullRequestsApiService) GetV5ReposOwnerRepoPullsNumberOperateLogs(ctx context.Context, owner string, repo string, number int32, localVarOptionals *GetV5ReposOwnerRepoPullsNumberOperateLogsOpts) (OperateLog, *http.Response, error) {
+func (a *PullRequestsApiService) GetV5ReposOwnerRepoPullsNumberOperateLogs(ctx context.Context, owner string, repo string, number int32, localVarOptionals *GetV5ReposOwnerRepoPullsNumberOperateLogsOpts) ([]OperateLog, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Get")
 		localVarPostBody    interface{}
 		localVarFileName    string
 		localVarFileBytes   []byte
-		localVarReturnValue OperateLog
+		localVarReturnValue []OperateLog
 	)
 
 	// create path and map variables
@@ -1603,7 +1603,7 @@ func (a *PullRequestsApiService) GetV5ReposOwnerRepoPullsNumberOperateLogs(ctx c
 		}
 
 		if localVarHttpResponse.StatusCode == 200 {
-			var v OperateLog
+			var v []OperateLog
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
