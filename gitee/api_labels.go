@@ -1116,13 +1116,13 @@ type PutV5ReposOwnerRepoIssuesNumberLabelsOpts struct {
 	Body        optional.Interface
 }
 
-func (a *LabelsApiService) PutV5ReposOwnerRepoIssuesNumberLabels(ctx context.Context, owner string, repo string, number string, localVarOptionals *PutV5ReposOwnerRepoIssuesNumberLabelsOpts) (Label, *http.Response, error) {
+func (a *LabelsApiService) PutV5ReposOwnerRepoIssuesNumberLabels(ctx context.Context, owner string, repo string, number string, localVarOptionals *PutV5ReposOwnerRepoIssuesNumberLabelsOpts) ([]Label, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Put")
 		localVarPostBody    interface{}
 		localVarFileName    string
 		localVarFileBytes   []byte
-		localVarReturnValue Label
+		localVarReturnValue []Label
 	)
 
 	// create path and map variables
@@ -1156,7 +1156,7 @@ func (a *LabelsApiService) PutV5ReposOwnerRepoIssuesNumberLabels(ctx context.Con
 		localVarFormParams.Add("access_token", parameterToString(localVarOptionals.AccessToken.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.Body.IsSet() {
-		localVarFormParams.Add("body", parameterToString(localVarOptionals.Body.Value(), "multi"))
+		localVarPostBody = localVarOptionals.Body.Value()
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
@@ -1189,7 +1189,7 @@ func (a *LabelsApiService) PutV5ReposOwnerRepoIssuesNumberLabels(ctx context.Con
 		}
 
 		if localVarHttpResponse.StatusCode == 200 {
-			var v Label
+			var v []Label
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
