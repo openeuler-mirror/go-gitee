@@ -2145,7 +2145,7 @@ func (a *PullRequestsApiService) PostV5ReposOwnerRepoPullsNumberLabels(ctx conte
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	localVarPostBody = &body.Body // This shoud be &body because the gitee api is not normalized.
+	localVarPostBody = &body.Body // This should not be &body because the gitee api is not normalized.
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err

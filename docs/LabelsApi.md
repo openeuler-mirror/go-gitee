@@ -384,7 +384,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostV5ReposOwnerRepoIssuesNumberLabels**
-> Label PostV5ReposOwnerRepoIssuesNumberLabels(ctx, owner, repo, number, optional)
+> []Label PostV5ReposOwnerRepoIssuesNumberLabels(ctx, owner, repo, number, body)
 创建Issue标签
 
 创建Issue标签  需要在请求的body里填上数组，元素为标签的名字。如: [\"performance\", \"bug\"]
@@ -397,22 +397,11 @@ Name | Type | Description  | Notes
   **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
   **repo** | **string**| 仓库路径(path) | 
   **number** | **string**| Issue 编号(区分大小写，无需添加 # 号) | 
- **optional** | ***PostV5ReposOwnerRepoIssuesNumberLabelsOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a PostV5ReposOwnerRepoIssuesNumberLabelsOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
- **accessToken** | **optional.String**| 用户授权码 | 
- **body** | [**optional.Interface of []string**](string.md)| 标签名数组，如: [\&quot;feat\&quot;, \&quot;bug\&quot;] | 
+  **body** | [**PullRequestLabelPostParam**](PullRequestLabelPostParam.md)| 必选，标签的内容 | 
 
 ### Return type
 
-[**Label**](Label.md)
+[**[]Label**](Label.md)
 
 ### Authorization
 
@@ -436,9 +425,9 @@ No authorization required
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) |
-  **repo** | **string**| 仓库路径(path) |
-  **body** | [**LabelPostParam**](LabelPostParam.md)| 必选，标签的内容 |
+  **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
+  **repo** | **string**| 仓库路径(path) | 
+  **body** | [**LabelPostParam**](LabelPostParam.md)| 必选，标签的内容 | 
 
 ### Return type
 
@@ -456,7 +445,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutV5ReposOwnerRepoIssuesNumberLabels**
-> Label PutV5ReposOwnerRepoIssuesNumberLabels(ctx, owner, repo, number, optional)
+> []Label PutV5ReposOwnerRepoIssuesNumberLabels(ctx, owner, repo, number, body)
 替换Issue所有标签
 
 替换Issue所有标签  需要在请求的body里填上数组，元素为标签的名字。如: [\"performance\", \"bug\"]
@@ -469,22 +458,11 @@ Name | Type | Description  | Notes
   **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
   **repo** | **string**| 仓库路径(path) | 
   **number** | **string**| Issue 编号(区分大小写，无需添加 # 号) | 
- **optional** | ***PutV5ReposOwnerRepoIssuesNumberLabelsOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a PutV5ReposOwnerRepoIssuesNumberLabelsOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
- **accessToken** | **optional.String**| 用户授权码 | 
- **body** | [**optional.Interface of []string**](string.md)| 标签名数组，如: [\&quot;feat\&quot;, \&quot;bug\&quot;] | 
+  **body** | [**PullRequestLabelPostParam**](PullRequestLabelPostParam.md)| 必选，标签的内容 | 
 
 ### Return type
 
-[**Label**](Label.md)
+[**[]Label**](Label.md)
 
 ### Authorization
 
