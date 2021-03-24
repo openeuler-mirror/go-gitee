@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Homepage** | **string** | 主页(eg: https://gitee.com) | [optional] [default to null]
 **HasIssues** | **bool** | 允许提Issue与否。默认: 允许(true) | [optional] [default to null]
 **HasWiki** | **bool** | 提供Wiki与否。默认: 提供(true) | [optional] [default to null]
+**CanComment** | **bool** | 允许用户对仓库进行评论。默认： 允许(true) | [optional] [default to null]
 **Public** | **int32** | 仓库开源类型。0(私有), 1(外部开源), 2(内部开源)，注：与private互斥，以public为主。 | [optional] [default to null]
 **Private** | **bool** | 仓库公开或私有。默认: 公开(false)，注：与public互斥，以public为主。 | [optional] [default to null]
 **AutoInit** | **bool** | 值为true时则会用README初始化仓库。默认: 不初始化(false) | [optional] [default to null]

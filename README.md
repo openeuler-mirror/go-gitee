@@ -279,6 +279,8 @@ Class | Method | HTTP request | Description
  - [EnterpriseBasic](docs/EnterpriseBasic.md)
  - [EnterpriseMember](docs/EnterpriseMember.md)
  - [Event](docs/Event.md)
+ - [GitCommit](docs/GitCommit.md)
+ - [GitUser](docs/GitUser.md)
  - [Group](docs/Group.md)
  - [GroupDetail](docs/GroupDetail.md)
  - [GroupMember](docs/GroupMember.md)
