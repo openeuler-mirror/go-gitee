@@ -4036,7 +4036,10 @@ paths:
         200:
           description: "返回格式"
           schema:
-            $ref: "#/definitions/OperateLog"
+            type: "array"
+            items:
+              $ref: "#/definitions/OperateLog"
+
   /v5/repos/{owner}/{repo}/pulls/{number}/commits:
     get:
       tags:
@@ -4730,6 +4733,34 @@ paths:
           description: "返回格式"
           schema:
             $ref: "#/definitions/Label"
+
+    put:
+      tags:
+      - "Pull Requests"
+      summary: "替换Pull Request 所有标签"
+      description: "替换Pull Request 所有标签\n 需要在请求的body里填上数组，元素为标签的名字。如: [\"performance\", \"\
+        bug\"]"
+      operationId: "putV5ReposOwnerRepoPullsNumberLabels"
+      consumes:
+      - "application/json"
+      - "multipart/form-data"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "必选，标签的内容"
+        required: true
+        schema:
+          $ref: "#/definitions/PullRequestLabelPostParam"
+        x-exportParamName: "Body"
+      responses:
+        202:
+          description: "返回格式"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Label"
 
   /v5/repos/{owner}/{repo}/pulls/{number}/labels/{name}:
     parameters:
@@ -13941,7 +13972,7 @@ definitions:
       icon:
         type: "string"
       user:
-        type: "string"
+        $ref: "#/definitions/User"
       content:
         type: "string"
       created_at:
