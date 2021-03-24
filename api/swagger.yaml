@@ -14438,6 +14438,12 @@ definitions:
         type: "string"
       statuses_url:
         type: "string"
+      assignees_number:
+        type: "integer"
+        format: "int32"
+      testers_number:
+        type: "integer"
+        format: "int32"
       number:
         type: "integer"
         format: "int32"
@@ -15836,6 +15842,18 @@ definitions:
         description: "用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance"
         x-exportParamName: "Labels"
         x-optionalDataType: "String"
+      assignees_number:
+        type: "integer"
+        format: "int32"
+        description: "最少审查人数"
+        x-exportParamName: "AssigneesNumber"
+        x-optionalDataType: "Int32"
+      testers_number:
+        type: "integer"
+        format: "int32"
+        description: "最少测试人员"
+        x-exportParamName: "TestersNumber"
+        x-optionalDataType: "Int32"
     description: "update pull request information"
     example:
       access_token: "access_token"

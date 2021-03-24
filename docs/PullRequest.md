@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **ReviewCommentUrl** | **string** |  | [optional] [default to null]
 **CommentsUrl** | **string** |  | [optional] [default to null]
 **StatusesUrl** | **string** |  | [optional] [default to null]
+**AssigneesNumber** | **int32** |  | [optional] [default to null]
+**TestersNumber** | **int32** |  | [optional] [default to null]
 **Number** | **int32** |  | [optional] [default to null]
 **State** | **string** |  | [optional] [default to null]
 **Title** | **string** |  | [optional] [default to null]
