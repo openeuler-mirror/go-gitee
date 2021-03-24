@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | [optional] [default to null]
 **Icon** | **string** |  | [optional] [default to null]
-**User** | **string** |  | [optional] [default to null]
+**User** | [***User**](User.md) |  | [optional] [default to null]
 **Content** | **string** |  | [optional] [default to null]
 **CreatedAt** | **string** |  | [optional] [default to null]
 
