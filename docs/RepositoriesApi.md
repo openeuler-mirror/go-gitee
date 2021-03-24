@@ -2311,9 +2311,9 @@ No authorization required
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) |
-  **repo** | **string**| 仓库路径(path) |
-  **body** | [**SetRepoReviewer**](SetRepoReviewer.md)| 修改代码审查的信息 |
+  **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
+  **repo** | **string**| 仓库路径(path) | 
+  **body** | [**SetRepoReviewer**](SetRepoReviewer.md)| 修改代码审查的信息 | 
 
 ### Return type
 
