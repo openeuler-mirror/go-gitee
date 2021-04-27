@@ -10,5 +10,7 @@
 package gitee
 
 type SingleCommit struct {
+	Author *GitUser `json:"author,omitempty"`
+	Committer *GitUser `json:"committer,omitempty"`
 	Tree *CommitTree `json:"tree,omitempty"`
 }
