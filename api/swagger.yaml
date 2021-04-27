@@ -13400,6 +13400,10 @@ definitions:
   SingleCommit:
     type: "object"
     properties:
+      author:
+        $ref: "#/definitions/GitUser"
+      committer:
+        $ref: "#/definitions/GitUser"
       tree:
         $ref: "#/definitions/CommitTree"
   CommitTree:
