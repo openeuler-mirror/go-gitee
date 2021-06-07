@@ -3364,6 +3364,24 @@ paths:
         required: true
         type: "string"
         x-exportParamName: "Repo"
+      - name: "page"
+        in: "query"
+        description: "当前的页码"
+        required: false
+        type: "integer"
+        default: 1
+        format: "int32"
+        x-exportParamName: "Page"
+        x-optionalDataType: "Int32"
+      - name: "per_page"
+        in: "query"
+        description: "每页的数量，最大为 100"
+        required: false
+        type: "integer"
+        default: 20
+        format: "int32"
+        x-exportParamName: "PerPage"
+        x-optionalDataType: "Int32"
       responses:
         200:
           description: "返回格式"
