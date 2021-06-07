@@ -620,6 +620,8 @@ Name | Type | Description  | Notes
 
 
  **accessToken** | **optional.String**| 用户授权码 | 
+ **page** | **optional.Int32**| 当前的页码 | [default to 1]
+ **perPage** | **optional.Int32**| 每页的数量，最大为 100 | [default to 20]
 
 ### Return type
 
