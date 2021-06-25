@@ -2,10 +2,14 @@ package test
 
 import (
 	"gitee.com/openeuler/go-gitee/gitee"
-	"github.com/antihax/optional"
 	"golang.org/x/net/context"
 	"golang.org/x/oauth2"
 	"testing"
+)
+
+const (
+	testOrg  = "cve-manage-test"
+	testRepo = "config"
 )
 
 var client *gitee.APIClient
@@ -24,10 +28,10 @@ func init() {
 }
 
 func TestPutV5ReposOwnerRepoPullsNumberLabels(t *testing.T) {
-	op := &gitee.PutV5ReposOwnerRepoPullsNumberLabelsOpts{
-		Body: optional.NewInterface([]string{"feature", "go-gitee-test"}),
+	op := gitee.PullRequestLabelPostParam{
+		Body: []string{"feature", "go-gitee-test"},
 	}
-	labels, _, err := client.PullRequestsApi.PutV5ReposOwnerRepoPullsNumberLabels(context.Background(), "cve-manage-test", "phpp", 1, op)
+	labels, _, err := client.PullRequestsApi.PutV5ReposOwnerRepoPullsNumberLabels(context.Background(), testOrg, testRepo, 1, op)
 	if err != nil {
 		t.Error(err)
 	} else {
@@ -36,14 +40,25 @@ func TestPutV5ReposOwnerRepoPullsNumberLabels(t *testing.T) {
 }
 
 func TestPutV5ReposOwnerRepoIssuesNumberLabels(t *testing.T) {
-	op := &gitee.PutV5ReposOwnerRepoIssuesNumberLabelsOpts{
-		Body: optional.NewInterface([]string{"feature", "go-gitee-test"}),
+	op := gitee.PullRequestLabelPostParam{
+		Body: []string{"feature", "go-gitee-test"},
 	}
-	labels, _, err := client.LabelsApi.PutV5ReposOwnerRepoIssuesNumberLabels(context.Background(), "cve-manage-test", "config", "I3A2AO", op)
+	labels, _, err := client.LabelsApi.PutV5ReposOwnerRepoIssuesNumberLabels(context.Background(), testOrg, testRepo, "I3A2AO", op)
 	if err != nil {
 		t.Error(err)
 	} else {
 		t.Log(labels)
 	}
 
+}
+
+func TestPatchV5ReposOwnerIssuesNumber(t *testing.T) {
+	body := gitee.IssueUpdateParam{
+		Repo:          testRepo,
+		Collaborators: "zhangjianjun_code",
+	}
+	_, _, err := client.IssuesApi.PatchV5ReposOwnerIssuesNumber(context.Background(), testOrg, "I3IZ20", body)
+	if err != nil {
+		t.Error(err)
+	}
 }

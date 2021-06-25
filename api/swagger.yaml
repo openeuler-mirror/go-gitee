@@ -15937,6 +15937,11 @@ definitions:
         description: "项目ID"
         x-exportParamName: "Program"
         x-optionalDataType: "String"
+      collaborators:
+        type: "string"
+        description: "Issue协助者的个人空间地址, 以 , 分隔"
+        x-exportParamName: "Collaborators"
+        x-optionalDataType: "String"
     description: "update issue information"
     example:
       access_token: "access_token"
