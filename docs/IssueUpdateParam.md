@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Milestone** | **int32** | 里程碑序号 | [optional] [default to null]
 **Labels** | **string** | 用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance | [optional] [default to null]
 **Program** | **string** | 项目ID | [optional] [default to null]
+**Collaborators** | **string** | Issue协助者的个人空间地址, 以 , 分隔 | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
