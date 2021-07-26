@@ -16623,11 +16623,13 @@ definitions:
         x-optionalDataType: "String"
       assignees_number:
         type: "integer"
+        format: "int32"
         description: "最少审查人数"
         x-exportParamName: "AssigneesNumber"
         x-optionalDataType: "Int32"
       testers_number:
         type: "integer"
+        format: "int32"
         description: "最少测试人员"
         x-exportParamName: "TestersNumber"
         x-optionalDataType: "Int32"
