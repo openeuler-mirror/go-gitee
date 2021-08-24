@@ -198,7 +198,7 @@ func (c *APIClient) callAPI(request *http.Request) (r *http.Response, err error)
 	n := 3
 	for i := 0; i < n; i++ {
 		r, err = c.cfg.HTTPClient.Do(request)
-		if !canRetry() {
+		if i+1 >= n || !canRetry() {
 			return
 		}
 
@@ -206,11 +206,7 @@ func (c *APIClient) callAPI(request *http.Request) (r *http.Response, err error)
 			r.Body.Close()
 		}
 
-		j := i + 1
-		if j >= n {
-			break
-		}
-		time.Sleep(time.Duration(j) * time.Second)
+		time.Sleep(time.Duration(i+1) * time.Second)
 	}
 	return
 }
