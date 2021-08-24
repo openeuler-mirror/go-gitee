@@ -187,12 +187,23 @@ func parameterToString(obj interface{}, collectionFormat string) string {
 
 // callAPI do the request.
 func (c *APIClient) callAPI(request *http.Request) (r *http.Response, err error) {
+	canRetry := func() bool {
+		if r != nil && r.StatusCode == 502 {
+			return true
+		}
+
+		return err != nil && strings.Contains(strings.ToLower(err.Error()), "502 bad gateway")
+	}
+
 	n := 3
-	code := 502
 	for i := 0; i < n; i++ {
 		r, err = c.cfg.HTTPClient.Do(request)
-		if err != nil || r == nil || r.StatusCode != code {
+		if !canRetry() {
 			return
+		}
+
+		if err == nil && r != nil && r.Body != nil {
+			r.Body.Close()
 		}
 
 		j := i + 1
