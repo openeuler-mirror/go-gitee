@@ -186,8 +186,22 @@ func parameterToString(obj interface{}, collectionFormat string) string {
 }
 
 // callAPI do the request.
-func (c *APIClient) callAPI(request *http.Request) (*http.Response, error) {
-	return c.cfg.HTTPClient.Do(request)
+func (c *APIClient) callAPI(request *http.Request) (r *http.Response, err error) {
+	n := 3
+	code := 502
+	for i := 0; i < n; i++ {
+		r, err = c.cfg.HTTPClient.Do(request)
+		if err != nil || r == nil || r.StatusCode != code {
+			return
+		}
+
+		j := i + 1
+		if j >= n {
+			break
+		}
+		time.Sleep(time.Duration(j) * time.Second)
+	}
+	return
 }
 
 // Change base path to allow switching to mocks
