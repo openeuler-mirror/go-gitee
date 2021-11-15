@@ -75,7 +75,6 @@ type PullRequestEvent struct {
 	ActionDesc     *string          `json:"action_desc,omitempty"`
 	PullRequest    *PullRequestHook `json:"pull_request,omitempty"`
 	Number         int64            `json:"number,omitempty"`
-	Commits        int64            `json:"commits,omitempty"`
 	IID            int64            `json:"iid,omitempty"`
 	Title          *string          `json:"title,omitempty"`
 	Body           *string          `json:"body,omitempty"`
