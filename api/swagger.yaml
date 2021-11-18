@@ -2830,7 +2830,9 @@ paths:
         200:
           description: "返回格式"
           schema:
-            $ref: "#/definitions/Note"
+            type: "array"
+            items:
+              $ref: "#/definitions/Note"
         404:
           description: "没有相关数据"
     post:
@@ -2974,13 +2976,6 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "access_token"
-        in: "formData"
-        description: "用户授权码"
-        required: false
-        type: "string"
-        x-exportParamName: "AccessToken"
-        x-optionalDataType: "String"
       - name: "owner"
         in: "path"
         description: "仓库所属空间地址(企业、组织或个人的地址path)"
@@ -3001,10 +2996,11 @@ paths:
         format: "int32"
         x-exportParamName: "Id"
       - name: "body"
-        in: "formData"
-        description: "The contents of the comment."
+        in: "body"
+        description: "必填。评论内容"
         required: true
-        type: "string"
+        schema:
+          $ref: "#/definitions/IssueCommentPatchParam"
         x-exportParamName: "Body"
       responses:
         200:
@@ -16322,6 +16318,23 @@ definitions:
     example:
       access_token: "access_token"
       body: ["feat"]
+  IssueCommentPatchParam:
+    type: "object"
+    properties:
+      access_token:
+        type: "string"
+        description: "用户授权码"
+        x-exportParamName: "AccessToken"
+        x-optionalDataType: "String"
+      body:
+        type: "string"
+        description: "必填。评论内容"
+        x-exportParamName: "Body"
+        required: true
+    description: "edit pull request comment"
+    example:
+      access_token: "access_token"
+      body: "body"
   PullRequestCommentPatchParam:
     type: "object"
     properties:

@@ -556,7 +556,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetV5ReposOwnerRepoIssuesNumberComments**
-> Note GetV5ReposOwnerRepoIssuesNumberComments(ctx, owner, repo, number, optional)
+> []Note GetV5ReposOwnerRepoIssuesNumberComments(ctx, owner, repo, number, optional)
 获取仓库某个Issue所有的评论
 
 获取仓库某个Issue所有的评论
@@ -586,7 +586,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Note**](Note.md)
+[**[]Note**](Note.md)
 
 ### Authorization
 
@@ -677,7 +677,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PatchV5ReposOwnerRepoIssuesCommentsId**
-> Note PatchV5ReposOwnerRepoIssuesCommentsId(ctx, owner, repo, id, body, optional)
+> Note PatchV5ReposOwnerRepoIssuesCommentsId(ctx, owner, repo, id, body)
 更新Issue某条评论
 
 更新Issue某条评论
@@ -690,19 +690,7 @@ Name | Type | Description  | Notes
   **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
   **repo** | **string**| 仓库路径(path) | 
   **id** | **int32**| 评论的ID | 
-  **body** | **string**| The contents of the comment. | 
- **optional** | ***PatchV5ReposOwnerRepoIssuesCommentsIdOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a PatchV5ReposOwnerRepoIssuesCommentsIdOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-
- **accessToken** | **optional.String**| 用户授权码 | 
+  **body** | [**IssueCommentPatchParam**](IssueCommentPatchParam.md)| 必填。评论内容 |
 
 ### Return type
 

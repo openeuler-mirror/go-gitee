@@ -12,12 +12,11 @@ package gitee
 import (
 	"context"
 	"fmt"
+	"github.com/antihax/optional"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-
-	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -1555,7 +1554,7 @@ IssuesApiService 获取仓库某个Issue所有的评论
      * @param "Page" (optional.Int32) -  当前的页码
      * @param "PerPage" (optional.Int32) -  每页的数量，最大为 100
 
-@return Note
+@return []Note
 */
 
 type GetV5ReposOwnerRepoIssuesNumberCommentsOpts struct {
@@ -1565,13 +1564,13 @@ type GetV5ReposOwnerRepoIssuesNumberCommentsOpts struct {
 	PerPage     optional.Int32
 }
 
-func (a *IssuesApiService) GetV5ReposOwnerRepoIssuesNumberComments(ctx context.Context, owner string, repo string, number string, localVarOptionals *GetV5ReposOwnerRepoIssuesNumberCommentsOpts) (Note, *http.Response, error) {
+func (a *IssuesApiService) GetV5ReposOwnerRepoIssuesNumberComments(ctx context.Context, owner string, repo string, number string, localVarOptionals *GetV5ReposOwnerRepoIssuesNumberCommentsOpts) ([]Note, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Get")
 		localVarPostBody    interface{}
 		localVarFileName    string
 		localVarFileBytes   []byte
-		localVarReturnValue Note
+		localVarReturnValue []Note
 	)
 
 	// create path and map variables
@@ -1644,7 +1643,7 @@ func (a *IssuesApiService) GetV5ReposOwnerRepoIssuesNumberComments(ctx context.C
 		}
 
 		if localVarHttpResponse.StatusCode == 200 {
-			var v Note
+			var v []Note
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1918,18 +1917,11 @@ IssuesApiService 更新Issue某条评论
  * @param owner 仓库所属空间地址(企业、组织或个人的地址path)
  * @param repo 仓库路径(path)
  * @param id 评论的ID
- * @param body The contents of the comment.
- * @param optional nil or *PatchV5ReposOwnerRepoIssuesCommentsIdOpts - Optional Parameters:
-     * @param "AccessToken" (optional.String) -  用户授权码
+ * @param body 必填。评论内容
 
 @return Note
 */
-
-type PatchV5ReposOwnerRepoIssuesCommentsIdOpts struct {
-	AccessToken optional.String
-}
-
-func (a *IssuesApiService) PatchV5ReposOwnerRepoIssuesCommentsId(ctx context.Context, owner string, repo string, id int32, body string, localVarOptionals *PatchV5ReposOwnerRepoIssuesCommentsIdOpts) (Note, *http.Response, error) {
+func (a *IssuesApiService) PatchV5ReposOwnerRepoIssuesCommentsId(ctx context.Context, owner string, repo string, id int32, body IssueCommentPatchParam) (Note, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Patch")
 		localVarPostBody    interface{}
@@ -1965,10 +1957,8 @@ func (a *IssuesApiService) PatchV5ReposOwnerRepoIssuesCommentsId(ctx context.Con
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	if localVarOptionals != nil && localVarOptionals.AccessToken.IsSet() {
-		localVarFormParams.Add("access_token", parameterToString(localVarOptionals.AccessToken.Value(), ""))
-	}
-	localVarFormParams.Add("body", parameterToString(body, ""))
+	// body params
+	localVarPostBody = &body
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
