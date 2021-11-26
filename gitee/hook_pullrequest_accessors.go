@@ -15,32 +15,32 @@ func (p *PullRequestEvent) GetActionDesc() string{
 	return *p.ActionDesc
 }
 
-func (p *PullRequestEvent) GetPullRequest() PullRequestHook {
+func (p *PullRequestEvent) GetPullRequest() *PullRequestHook {
 	if p == nil || p.PullRequest == nil {
-		return PullRequestHook{}
+		return nil
 	}
-	return *p.PullRequest
+	return p.PullRequest
 }
 
-func (p *PullRequestEvent) GetAuthor() UserHook {
+func (p *PullRequestEvent) GetAuthor() *UserHook {
 	if p == nil || p.Author == nil {
-		return UserHook{}
+		return nil
 	}
-	return *p.Author
+	return p.Author
 }
 
-func (p *PullRequestEvent) GetProject() ProjectHook {
+func (p *PullRequestEvent) GetProject() *ProjectHook {
 	if p == nil || p.Project == nil {
-		return ProjectHook{}
+		return nil
 	}
-	return *p.Project
+	return p.Project
 }
 
-func (p *PullRequestEvent) GetRepository() ProjectHook {
+func (p *PullRequestEvent) GetRepository() *ProjectHook {
 	if p == nil || p.Repository == nil {
-		return ProjectHook{}
+		return nil
 	}
-	return *p.Repository
+	return p.Repository
 }
 
 func (p *PullRequestEvent) GetTitle() string{
@@ -99,46 +99,46 @@ func (p *PullRequestEvent) GetTargetBranch() string{
 	return *p.TargetBranch
 }
 
-func (p *PullRequestEvent) GetSourceRepo() RepoInfo {
+func (p *PullRequestEvent) GetSourceRepo() *RepoInfo {
 	if p == nil || p.SourceRepo == nil {
-		return RepoInfo{}
+		return nil
 	}
-	return *p.SourceRepo
+	return p.SourceRepo
 }
 
-func (p *PullRequestEvent) GetTargetRepo() RepoInfo {
+func (p *PullRequestEvent) GetTargetRepo() *RepoInfo {
 	if p == nil || p.TargetRepo == nil {
-		return RepoInfo{}
+		return nil
 	}
-	return *p.TargetRepo
+	return p.TargetRepo
 }
 
-func (p *PullRequestEvent) GetUpdatedBy() UserHook {
+func (p *PullRequestEvent) GetUpdatedBy() *UserHook {
 	if p == nil || p.UpdatedBy == nil {
-		return UserHook{}
+		return nil
 	}
-	return *p.UpdatedBy
+	return p.UpdatedBy
 }
 
-func (p *PullRequestEvent) GetSender() UserHook {
+func (p *PullRequestEvent) GetSender() *UserHook {
 	if p == nil || p.Sender == nil {
-		return UserHook{}
+		return nil
 	}
-	return *p.Sender
+	return p.Sender
 }
 
-func (p *PullRequestEvent) GetTargetUser() UserHook {
+func (p *PullRequestEvent) GetTargetUser() *UserHook {
 	if p == nil || p.TargetUser == nil {
-		return UserHook{}
+		return nil
 	}
-	return *p.TargetUser
+	return p.TargetUser
 }
 
-func (p *PullRequestEvent) GetEnterprise() EnterpriseHook {
+func (p *PullRequestEvent) GetEnterprise() *EnterpriseHook {
 	if p == nil || p.Enterprise == nil {
-		return EnterpriseHook{}
+		return nil
 	}
-	return *p.Enterprise
+	return p.Enterprise
 }
 
 func (p *PullRequestEvent) GetHookName() string{
