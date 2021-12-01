@@ -16,28 +16,28 @@ func (p *PullRequestEvent) GetActionDesc() string{
 }
 
 func (p *PullRequestEvent) GetPullRequest() *PullRequestHook {
-	if p == nil || p.PullRequest == nil {
+	if p == nil {
 		return nil
 	}
 	return p.PullRequest
 }
 
 func (p *PullRequestEvent) GetAuthor() *UserHook {
-	if p == nil || p.Author == nil {
+	if p == nil {
 		return nil
 	}
 	return p.Author
 }
 
 func (p *PullRequestEvent) GetProject() *ProjectHook {
-	if p == nil || p.Project == nil {
+	if p == nil {
 		return nil
 	}
 	return p.Project
 }
 
 func (p *PullRequestEvent) GetRepository() *ProjectHook {
-	if p == nil || p.Repository == nil {
+	if p == nil {
 		return nil
 	}
 	return p.Repository
@@ -100,42 +100,42 @@ func (p *PullRequestEvent) GetTargetBranch() string{
 }
 
 func (p *PullRequestEvent) GetSourceRepo() *RepoInfo {
-	if p == nil || p.SourceRepo == nil {
+	if p == nil {
 		return nil
 	}
 	return p.SourceRepo
 }
 
 func (p *PullRequestEvent) GetTargetRepo() *RepoInfo {
-	if p == nil || p.TargetRepo == nil {
+	if p == nil {
 		return nil
 	}
 	return p.TargetRepo
 }
 
 func (p *PullRequestEvent) GetUpdatedBy() *UserHook {
-	if p == nil || p.UpdatedBy == nil {
+	if p == nil {
 		return nil
 	}
 	return p.UpdatedBy
 }
 
 func (p *PullRequestEvent) GetSender() *UserHook {
-	if p == nil || p.Sender == nil {
+	if p == nil {
 		return nil
 	}
 	return p.Sender
 }
 
 func (p *PullRequestEvent) GetTargetUser() *UserHook {
-	if p == nil || p.TargetUser == nil {
+	if p == nil {
 		return nil
 	}
 	return p.TargetUser
 }
 
 func (p *PullRequestEvent) GetEnterprise() *EnterpriseHook {
-	if p == nil || p.Enterprise == nil {
+	if p == nil {
 		return nil
 	}
 	return p.Enterprise
@@ -153,4 +153,10 @@ func (p *PullRequestEvent) GetPassword() string{
 		return ""
 	}
 	return *p.Password
+}
+
+func (p *PullRequestEvent) GetOwnerAndRepo() (string, string) {
+	r := p.GetRepository()
+
+	return r.GetNameSpace(), r.GetPath()
 }

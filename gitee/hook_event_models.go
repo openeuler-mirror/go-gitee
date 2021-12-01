@@ -158,6 +158,7 @@ type PullRequestHook struct {
 	PatchUrl           string         `json:"patch_url,omitempty"`
 	Title              string         `json:"title,omitempty"`
 	Body               string         `json:"body,omitempty"`
+	StaleLabels        []LabelHook    `json:"stale_labels,omitempty"`
 	Labels             []LabelHook    `json:"labels,omitempty"`
 	CreatedAt          string         `json:"created_at,omitempty"`
 	UpdatedAt          string         `json:"updated_at,omitempty"`
