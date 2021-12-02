@@ -1,5 +1,37 @@
 package gitee
 
+func (ph *PullRequestHook) GetNumber() int32 {
+	if ph == nil {
+		return 0
+	}
+
+	return ph.Number
+}
+
+func (ph *PullRequestHook) GetNeedTest() bool {
+	if ph == nil {
+		return false
+	}
+
+	return ph.NeedTest
+}
+
+func (ph *PullRequestHook) GetNeedReview() bool {
+	if ph == nil {
+		return false
+	}
+
+	return ph.NeedReview
+}
+
+func (ph *PullRequestHook) GetMergeable() bool {
+	if ph == nil {
+		return false
+	}
+
+	return ph.Mergeable
+}
+
 func (ph *PullRequestHook) GetUser() *UserHook {
 	if ph == nil {
 		return nil
