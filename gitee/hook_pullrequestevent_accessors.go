@@ -154,9 +154,3 @@ func (p *PullRequestEvent) GetPassword() string{
 	}
 	return *p.Password
 }
-
-func (p *PullRequestEvent) GetOwnerAndRepo() (string, string) {
-	r := p.GetRepository()
-
-	return r.GetNameSpace(), r.GetPath()
-}

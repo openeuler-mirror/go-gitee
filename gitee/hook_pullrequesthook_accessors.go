@@ -39,6 +39,7 @@ func (ph *PullRequestHook) GetBase() *BranchHook {
 
 	return ph.Base
 }
+
 func (ph *PullRequestHook) GetUpdatedBy() *UserHook {
 	if ph == nil {
 		return nil
