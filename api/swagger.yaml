@@ -14483,6 +14483,10 @@ definitions:
           $ref: "#/definitions/UserBasic"
       milestone:
         $ref: "#/definitions/Milestone"
+      stale_labels:
+        type: "array"
+        items:
+          $ref: "#/definitions/StaleLabels"
       labels:
         type: "array"
         items:
