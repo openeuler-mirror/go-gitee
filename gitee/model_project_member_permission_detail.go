@@ -9,7 +9,8 @@
 
 package gitee
 
-type Permission struct {
+type ProjectMemberPermissionDetail struct {
 	Pull bool `json:"pull,omitempty"`
 	Push bool `json:"push,omitempty"`
+	Admin bool `json:"admin,omitempty"`
 }
