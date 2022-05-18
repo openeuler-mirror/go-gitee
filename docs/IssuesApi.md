@@ -690,7 +690,7 @@ Name | Type | Description  | Notes
   **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
   **repo** | **string**| 仓库路径(path) | 
   **id** | **int32**| 评论的ID | 
-  **body** | [**IssueCommentPatchParam**](IssueCommentPatchParam.md)| 必填。评论内容 |
+  **body** | [**IssueCommentPatchParam**](IssueCommentPatchParam.md)| 必填。评论内容 | 
 
 ### Return type
 
@@ -708,7 +708,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostV5ReposOwnerIssues**
-> Issue PostV5ReposOwnerIssues(ctx, owner, title, optional)
+> Issue PostV5ReposOwnerIssues(ctx, owner, body)
 创建Issue
 
 创建Issue
@@ -719,24 +719,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
-  **title** | **string**| Issue标题 | 
- **optional** | ***PostV5ReposOwnerIssuesOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a PostV5ReposOwnerIssuesOpts struct
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **accessToken** | **optional.String**| 用户授权码 | 
- **repo** | **optional.String**| 仓库路径(path) | 
- **issueType** | **optional.String**| 企业自定义任务类型，非企业默认任务类型为“任务” | 
- **body** | **optional.String**| Issue描述 | 
- **assignee** | **optional.String**| Issue负责人的username | 
- **milestone** | **optional.Int32**| 里程碑序号 | 
- **labels** | **optional.String**| 用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance | 
- **program** | **optional.String**| 项目ID | 
+  **body** | [**IssueCreateParam**](IssueCreateParam.md)| 可选。Issue 内容 | 
 
 ### Return type
 

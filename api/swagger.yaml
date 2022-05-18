@@ -1399,75 +1399,19 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "access_token"
-        in: "formData"
-        description: "用户授权码"
-        required: false
-        type: "string"
-        x-exportParamName: "AccessToken"
-        x-optionalDataType: "String"
       - name: "owner"
         in: "path"
         description: "仓库所属空间地址(企业、组织或个人的地址path)"
         required: true
         type: "string"
         x-exportParamName: "Owner"
-      - name: "repo"
-        in: "formData"
-        description: "仓库路径(path)"
-        required: false
-        type: "string"
-        x-exportParamName: "Repo"
-        x-optionalDataType: "String"
-      - name: "title"
-        in: "formData"
-        description: "Issue标题"
+      - in: "body"
+        name: "body"
+        description: "可选。Issue 内容"
         required: true
-        type: "string"
-        x-exportParamName: "Title"
-      - name: "issue_type"
-        in: "formData"
-        description: "企业自定义任务类型，非企业默认任务类型为“任务”"
-        required: false
-        type: "string"
-        x-exportParamName: "IssueType"
-        x-optionalDataType: "String"
-      - name: "body"
-        in: "formData"
-        description: "Issue描述"
-        required: false
-        type: "string"
+        schema:
+          $ref: "#/definitions/IssueCreateParam"
         x-exportParamName: "Body"
-        x-optionalDataType: "String"
-      - name: "assignee"
-        in: "formData"
-        description: "Issue负责人的username"
-        required: false
-        type: "string"
-        x-exportParamName: "Assignee"
-        x-optionalDataType: "String"
-      - name: "milestone"
-        in: "formData"
-        description: "里程碑序号"
-        required: false
-        type: "integer"
-        format: "int32"
-        x-exportParamName: "Milestone"
-        x-optionalDataType: "Int32"
-      - name: "labels"
-        in: "formData"
-        description: "用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance"
-        required: false
-        type: "string"
-        x-exportParamName: "Labels"
-        x-optionalDataType: "String"
-      - name: "program"
-        in: "formData"
-        description: "项目ID"
-        required: false
-        type: "string"
-        x-exportParamName: "Program"
-        x-optionalDataType: "String"
       responses:
         201:
           description: "返回格式"
@@ -1567,6 +1511,84 @@ paths:
             type: "array"
             items:
               $ref: "#/definitions/OperateLog"
+  /v5/repos/{owner}/{repo}/project_labels:
+    post:
+      tags:
+      - "Labels"
+      summary: "添加仓库标签"
+      description: "添加仓库标签"
+      operationId: "postV5ReposOwnerRepoProjectLabels"
+      consumes:
+      - "application/json"
+      - "multipart/form-data"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "owner"
+        in: "path"
+        description: "仓库所属空间地址(企业、组织或个人的地址path)"
+        required: true
+        type: "string"
+        x-exportParamName: "Owner"
+      - name: "repo"
+        in: "path"
+        description: "仓库路径(path)"
+        required: true
+        type: "string"
+        x-exportParamName: "Repo"
+      - in: "body"
+        name: "body"
+        description: "必选，标签的内容"
+        required: true
+        schema:
+          $ref: "#/definitions/PullRequestLabelPostParam"
+        x-exportParamName: "Body"
+      responses:
+        201:
+          description: "返回格式"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ProjectLabel"
+    put:
+      tags:
+      - "Labels"
+      summary: "替换所有仓库标签"
+      description: "替换所有仓库标签\n 需要在请求的body里填上数组，元素为标签的名字。如: [\"feat\", \"\
+        bug\"]"
+      operationId: "putV5ReposOwnerRepoProjectLabels"
+      consumes:
+      - "application/json"
+      - "multipart/form-data"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "owner"
+        in: "path"
+        description: "仓库所属空间地址(企业、组织或个人的地址path)"
+        required: true
+        type: "string"
+        x-exportParamName: "Owner"
+      - name: "repo"
+        in: "path"
+        description: "仓库路径(path)"
+        required: true
+        type: "string"
+        x-exportParamName: "Repo"
+      - in: "body"
+        name: "body"
+        description: "必选，标签的内容"
+        required: true
+        schema:
+          $ref: "#/definitions/PullRequestLabelPostParam"
+        x-exportParamName: "Body"
+      responses:
+        200:
+          description: "返回格式"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ProjectLabel"
   /v5/repos/{owner}/{repo}/labels:
     get:
       tags:
@@ -13995,6 +14017,8 @@ definitions:
         type: "string"
       created_at:
         type: "string"
+      action_type:
+        type: "string"
     description: "获取某个Pull Request的操作日志"
     example:
       icon: "icon"
@@ -14002,6 +14026,7 @@ definitions:
       id: "id"
       user: "user"
       content: "content"
+      action_type: "action_type"
   Note:
     type: "object"
     properties:
@@ -14242,6 +14267,21 @@ definitions:
     example:
       name: "name"
       commit: "commit"
+  ProjectLabel:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int32"
+      name:
+        type: "string"
+      ident:
+        type: "string"
+    description: "创建仓库标签"
+    example:
+      id: 0
+      name: "name"
+      ident: "ident"
   ProjectMember:
     type: "object"
     properties:
@@ -15944,6 +15984,70 @@ definitions:
       milestone: 0
       repo: "repo"
       state: "open"
+      assignee: "assignee"
+      program: "program"
+      title: "title"
+      body: "body"
+      labels: "labels"
+  IssueCreateParam:
+    type: "object"
+    properties:
+      access_token:
+        type: "string"
+        description: "用户授权码"
+        x-exportParamName: "AccessToken"
+        x-optionalDataType: "String"
+      repo:
+        type: "string"
+        description: "仓库路径(path)"
+        x-exportParamName: "Repo"
+        x-optionalDataType: "String"
+      title:
+        type: "string"
+        description: "Issue标题"
+        x-exportParamName: "Title"
+        x-optionalDataType: "String"
+      issu_type:
+        type: "string"
+        description: "企业自定义任务类型，非企业默认任务类型为“任务”"
+        x-exportParamName: "IssueType"
+        x-optionalDataType: "String"
+      body:
+        type: "string"
+        description: "Issue描述"
+        x-exportParamName: "Body"
+        x-optionalDataType: "String"
+      assignee:
+        type: "string"
+        description: "Issue负责人的username"
+        x-exportParamName: "Assignee"
+        x-optionalDataType: "String"
+      milestone:
+        type: "integer"
+        format: "int32"
+        description: "里程碑序号"
+        x-exportParamName: "Milestone"
+        x-optionalDataType: "Int32"
+      labels:
+        type: "string"
+        description: "用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance"
+        x-exportParamName: "Labels"
+        x-optionalDataType: "String"
+      program:
+        type: "string"
+        description: "项目ID"
+        x-exportParamName: "Program"
+        x-optionalDataType: "String"
+      collaborators:
+        type: "string"
+        description: "Issue协助者的个人空间地址, 以 , 分隔"
+        x-exportParamName: "Collaborators"
+        x-optionalDataType: "String"
+    description: "create issue information"
+    example:
+      access_token: "access_token"
+      milestone: 0
+      repo: "repo"
       assignee: "assignee"
       program: "program"
       title: "title"

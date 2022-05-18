@@ -15,7 +15,9 @@ Method | HTTP request | Description
 [**PatchV5ReposOwnerRepoLabelsOriginalName**](LabelsApi.md#PatchV5ReposOwnerRepoLabelsOriginalName) | **Patch** /v5/repos/{owner}/{repo}/labels/{original_name} | 更新一个仓库任务标签
 [**PostV5ReposOwnerRepoIssuesNumberLabels**](LabelsApi.md#PostV5ReposOwnerRepoIssuesNumberLabels) | **Post** /v5/repos/{owner}/{repo}/issues/{number}/labels | 创建Issue标签
 [**PostV5ReposOwnerRepoLabels**](LabelsApi.md#PostV5ReposOwnerRepoLabels) | **Post** /v5/repos/{owner}/{repo}/labels | 创建仓库任务标签
+[**PostV5ReposOwnerRepoProjectLabels**](LabelsApi.md#PostV5ReposOwnerRepoProjectLabels) | **Post** /v5/repos/{owner}/{repo}/project_labels | 添加仓库标签
 [**PutV5ReposOwnerRepoIssuesNumberLabels**](LabelsApi.md#PutV5ReposOwnerRepoIssuesNumberLabels) | **Put** /v5/repos/{owner}/{repo}/issues/{number}/labels | 替换Issue所有标签
+[**PutV5ReposOwnerRepoProjectLabels**](LabelsApi.md#PutV5ReposOwnerRepoProjectLabels) | **Put** /v5/repos/{owner}/{repo}/project_labels | 替换所有仓库标签
 
 
 # **DeleteV5ReposOwnerRepoIssuesNumberLabels**
@@ -444,6 +446,36 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PostV5ReposOwnerRepoProjectLabels**
+> []ProjectLabel PostV5ReposOwnerRepoProjectLabels(ctx, owner, repo, body)
+添加仓库标签
+
+添加仓库标签
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
+  **repo** | **string**| 仓库路径(path) | 
+  **body** | [**PullRequestLabelPostParam**](PullRequestLabelPostParam.md)| 必选，标签的内容 | 
+
+### Return type
+
+[**[]ProjectLabel**](ProjectLabel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PutV5ReposOwnerRepoIssuesNumberLabels**
 > []Label PutV5ReposOwnerRepoIssuesNumberLabels(ctx, owner, repo, number, body)
 替换Issue所有标签
@@ -463,6 +495,36 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]Label**](Label.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutV5ReposOwnerRepoProjectLabels**
+> []ProjectLabel PutV5ReposOwnerRepoProjectLabels(ctx, owner, repo, body)
+替换所有仓库标签
+
+替换所有仓库标签  需要在请求的body里填上数组，元素为标签的名字。如: [\"feat\", \"bug\"]
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**| 仓库所属空间地址(企业、组织或个人的地址path) | 
+  **repo** | **string**| 仓库路径(path) | 
+  **body** | [**PullRequestLabelPostParam**](PullRequestLabelPostParam.md)| 必选，标签的内容 | 
+
+### Return type
+
+[**[]ProjectLabel**](ProjectLabel.md)
 
 ### Authorization
 

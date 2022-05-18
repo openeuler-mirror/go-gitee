@@ -2011,32 +2011,11 @@ IssuesApiService 创建Issue
 创建Issue
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param owner 仓库所属空间地址(企业、组织或个人的地址path)
- * @param title Issue标题
- * @param optional nil or *PostV5ReposOwnerIssuesOpts - Optional Parameters:
-     * @param "AccessToken" (optional.String) -  用户授权码
-     * @param "Repo" (optional.String) -  仓库路径(path)
-     * @param "IssueType" (optional.String) -  企业自定义任务类型，非企业默认任务类型为“任务”
-     * @param "Body" (optional.String) -  Issue描述
-     * @param "Assignee" (optional.String) -  Issue负责人的username
-     * @param "Milestone" (optional.Int32) -  里程碑序号
-     * @param "Labels" (optional.String) -  用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance
-     * @param "Program" (optional.String) -  项目ID
+ * @param body 可选。Issue 内容
 
 @return Issue
 */
-
-type PostV5ReposOwnerIssuesOpts struct {
-	AccessToken optional.String
-	Repo        optional.String
-	IssueType   optional.String
-	Body        optional.String
-	Assignee    optional.String
-	Milestone   optional.Int32
-	Labels      optional.String
-	Program     optional.String
-}
-
-func (a *IssuesApiService) PostV5ReposOwnerIssues(ctx context.Context, owner string, title string, localVarOptionals *PostV5ReposOwnerIssuesOpts) (Issue, *http.Response, error) {
+func (a *IssuesApiService) PostV5ReposOwnerIssues(ctx context.Context, owner string, body IssueCreateParam) (Issue, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}
@@ -2070,31 +2049,8 @@ func (a *IssuesApiService) PostV5ReposOwnerIssues(ctx context.Context, owner str
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	if localVarOptionals != nil && localVarOptionals.AccessToken.IsSet() {
-		localVarFormParams.Add("access_token", parameterToString(localVarOptionals.AccessToken.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Repo.IsSet() {
-		localVarFormParams.Add("repo", parameterToString(localVarOptionals.Repo.Value(), ""))
-	}
-	localVarFormParams.Add("title", parameterToString(title, ""))
-	if localVarOptionals != nil && localVarOptionals.IssueType.IsSet() {
-		localVarFormParams.Add("issue_type", parameterToString(localVarOptionals.IssueType.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Body.IsSet() {
-		localVarFormParams.Add("body", parameterToString(localVarOptionals.Body.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Assignee.IsSet() {
-		localVarFormParams.Add("assignee", parameterToString(localVarOptionals.Assignee.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Milestone.IsSet() {
-		localVarFormParams.Add("milestone", parameterToString(localVarOptionals.Milestone.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Labels.IsSet() {
-		localVarFormParams.Add("labels", parameterToString(localVarOptionals.Labels.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Program.IsSet() {
-		localVarFormParams.Add("program", parameterToString(localVarOptionals.Program.Value(), ""))
-	}
+	// body params
+	localVarPostBody = &body
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
