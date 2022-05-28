@@ -5166,7 +5166,7 @@ type PostV5UserReposOpts struct {
 	Private           optional.Bool
 }
 
-func (a *RepositoriesApiService) PostV5UserRepos(ctx context.Context, name string, localVarOptionals *PostV5UserReposOpts) (Project, *http.Response, error) {
+func (a *RepositoriesApiService) PostV5UserRepos(ctx context.Context, name string, body RepositoryPostParam) (Project, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}
@@ -5199,37 +5199,9 @@ func (a *RepositoriesApiService) PostV5UserRepos(ctx context.Context, name strin
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	if localVarOptionals != nil && localVarOptionals.AccessToken.IsSet() {
-		localVarFormParams.Add("access_token", parameterToString(localVarOptionals.AccessToken.Value(), ""))
-	}
-	localVarFormParams.Add("name", parameterToString(name, ""))
-	if localVarOptionals != nil && localVarOptionals.Description.IsSet() {
-		localVarFormParams.Add("description", parameterToString(localVarOptionals.Description.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Homepage.IsSet() {
-		localVarFormParams.Add("homepage", parameterToString(localVarOptionals.Homepage.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.HasIssues.IsSet() {
-		localVarFormParams.Add("has_issues", parameterToString(localVarOptionals.HasIssues.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.HasWiki.IsSet() {
-		localVarFormParams.Add("has_wiki", parameterToString(localVarOptionals.HasWiki.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.CanComment.IsSet() {
-		localVarFormParams.Add("can_comment", parameterToString(localVarOptionals.CanComment.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.AutoInit.IsSet() {
-		localVarFormParams.Add("auto_init", parameterToString(localVarOptionals.AutoInit.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.GitignoreTemplate.IsSet() {
-		localVarFormParams.Add("gitignore_template", parameterToString(localVarOptionals.GitignoreTemplate.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.LicenseTemplate.IsSet() {
-		localVarFormParams.Add("license_template", parameterToString(localVarOptionals.LicenseTemplate.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Private.IsSet() {
-		localVarFormParams.Add("private", parameterToString(localVarOptionals.Private.Value(), ""))
-	}
+
+	// body params
+	localVarPostBody = &body
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
